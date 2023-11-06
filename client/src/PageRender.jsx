@@ -7,7 +7,7 @@ const genratePage = (pageName) => {
   const newPageName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
 
   const component = () =>
-    require(`./pages/${newPageName}/${newPageName}`).default;
+    require(`./pages/${newPageName}`).default;
 
   try {
     // Return the component with the page name

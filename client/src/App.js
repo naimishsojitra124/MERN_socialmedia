@@ -11,7 +11,6 @@ function App() {
             <Route path="/:page" element={<PageRender />} />
             <Route path="/:page/:id" element={<PageRender />} />
           </Routes>
-          sdf
         </div>
       </div>
     </Router>

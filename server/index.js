@@ -21,6 +21,15 @@ mongoose.connect(MONGO_URL, {
 }).then(() => console.log("Connected to MongoDB"))
     .catch((error) => console.log(error.message));
 
+
+// Routes
+const authRoute = require("./routes/authRouter")
+
+// Use Routes
+app.use("/api/auth", authRoute);
+
+
+
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
 });
