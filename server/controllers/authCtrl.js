@@ -8,6 +8,11 @@ const authCtrl = {
       const { name, email, password, profilePicture } = req.body;
       let username = req.body.username.toLowerCase().replace(/ /g, "");
 
+      if (password.length < 6) {
+        return res
+          .status(400)
+          .json({ msg: "Password must be at least 6 characters" });
+      }
       //Validation
       const userExists = await User.findOne({ username });
       if (userExists)

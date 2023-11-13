@@ -23,10 +23,12 @@ mongoose.connect(MONGO_URL, {
 
 
 // Routes
-const authRoute = require("./routes/authRouter")
+const authRoute = require("./routes/authRouter");
+const uploadRoute = require("./routes/uploadRouter");
 
 // Use Routes
 app.use("/api/auth", authRoute);
+app.use("/api/upload", uploadRoute);
 
 
 

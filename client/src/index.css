@@ -34,3 +34,18 @@ body {
 
 /* Login Styles */
 @import url("./styles/login.css");
+
+/* Root Layout Styles */
+@import url("./styles/rootLayout.css");
+
+/* Topbar Styles */
+@import url("./styles/topbar.css");
+
+/* LeftSidebar Styles */
+@import url("./styles//leftsidebar.css");
+
+/* Bottombar Styles */
+@import url("./styles/bottombar.css");
+
+/* Home Styles */
+@import url("./styles/home.css");

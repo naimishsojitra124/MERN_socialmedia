@@ -1,5 +1,5 @@
 .Register {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: url("../../public/assets/login_backgroundImg.jpg");
   background-size: cover;
@@ -80,21 +80,6 @@
   margin: 0 0 10px 0;
 }
 
-.register-form-group:first-child {
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.register-profile-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 0 5px 0;
-  object-fit: cover;
-  cursor: pointer;
-}
-
 .register-form-group label {
   font-size: 0.8rem;
   font-weight: 600;
@@ -149,6 +134,18 @@
   background: #4c43b3;
 }
 
+.register-form-group button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.register-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .register-form-group small {
   color: red;
   font-size: 0.8rem;
@@ -195,31 +192,25 @@
 
 .register-container-right::after {
   height: 100%;
-  opacity: 0.3;
+  opacity: 0.9;
+  border-radius: 0 5px 5px 0;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .register-right-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: 600;
-    text-align: center;
-    width: 65%;
-    line-height: 1.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  text-align: center;
+  width: 65%;
+  line-height: 1.5;
 }
 
 .register-right-text h1 {
-    color: #dedede;
-    margin: 0 0 1rem 0;
-}
-
-.register-right-text span {
-  font-size: 1.5rem;
-  font-weight: 700;
   color: #dedede;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  margin: 0 0 1rem 0;
 }
 
 @media screen and (max-width: 640px) {

@@ -1,0 +1,104 @@
+.LeftSideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 15%;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #e6e6e6;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.leftSideBar-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0 0;
+}
+
+.logo {
+  display: flex;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 0 0.5rem;
+}
+
+/* .leftSideBar-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.leftSideBar-profile img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.leftSideBar-profile-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.leftSideBar-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.leftSideBar-username {
+  font-size: 0.9rem;
+  color: #8e8e8e;
+} */
+
+.leftSideBar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.leftSideBar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.leftSideBar-link:hover {
+  background-color: #ebeaea;
+}
+
+.active {
+  background-color: #ebeaea;
+  font-weight: 700;
+}
+
+.leftSideBar-logout {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  gap: 0.5rem;
+  color: #ed4956;
+  margin: 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 641px) {
+    .LeftSideBar {
+      display: none;
+    }   
+  }

@@ -1,0 +1,4 @@
+.Home {
+    height: calc(100% - 15%);
+    display: flex;
+}

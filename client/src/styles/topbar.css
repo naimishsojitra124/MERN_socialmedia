@@ -1,0 +1,50 @@
+.TopBar {
+  height: 7%;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.topBar-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topBar-left,
+.topBar-right button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.topBar-left h1 {
+    color: #29292d;
+}
+
+.topBar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topBar-right button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ed4956;
+}
+
+@media screen and (min-width: 641px) {
+  .TopBar {
+    display: none;
+  }   
+}
