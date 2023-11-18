@@ -19,7 +19,7 @@ body {
 }
 
 #theme:checked ~ .App {
-  filter: invert(1);
+  filter: invert(1) hue-rotate(180deg) brightness(1.2);
 }
 
 .App {
@@ -49,3 +49,14 @@ body {
 
 /* Home Styles */
 @import url("./styles/home.css");
+
+/* Explore Styles */
+@import url("./styles/explore.css");
+
+/* Search Model Styles */
+@import url("./styles/searchmodel.css");
+
+/* Profile Styles */
+@import url("./styles/profile.css");
+@import url("./styles/profileinfo.css");
+@import url("./styles//profileinfobuttons.css");

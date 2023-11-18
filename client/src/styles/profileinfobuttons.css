@@ -1,0 +1,68 @@
+.ProfileInfoButtons {
+  /* background: aquamarine; */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  width: 10rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 0.35rem;
+  box-shadow: 0 3px 7px -4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editprofile-btn,
+.follow-btn,
+.message-btn {
+  background: #6358fd;
+}
+
+.unfollow-btn {
+    background: #fff;
+    border: 1px solid #6358fd;
+}
+
+.editprofile-btn span,
+.follow-btn span,
+.message-btn span,
+.unfollow-btn span {
+  color: #fff;
+  /* text-align: center; */
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.unfollow-btn span {
+    color: #6358fd;
+}
+
+@media screen and (max-width: 640px) {
+  .ProfileInfoButtons {
+    /* background: aquamarine; */
+    width: 100%;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .editprofile-btn {
+    width: 100%;
+}
+
+  .unfollow-btn,
+  .message-btn {
+    width: 45%;
+  }
+
+  .unfollow-btn span,
+  .message-btn span {
+    font-size: 0.9rem;
+  }
+}

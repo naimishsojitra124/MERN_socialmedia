@@ -25,13 +25,16 @@ mongoose.connect(MONGO_URL, {
 // Routes
 const authRoute = require("./routes/authRouter");
 const uploadRoute = require("./routes/uploadRouter");
+const userRouter = require('./routes/userRouter');
 
 // Use Routes
 app.use("/api/auth", authRoute);
 app.use("/api/upload", uploadRoute);
+app.use("/api/user", userRouter);
 
 
 
+// Listen on port
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
 });

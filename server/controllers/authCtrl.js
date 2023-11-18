@@ -3,11 +3,14 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const authCtrl = {
+  // @route   POST api/auth/register
   register: async (req, res) => {
     try {
+      // Destructure req.body
       const { name, email, password, profilePicture } = req.body;
       let username = req.body.username.toLowerCase().replace(/ /g, "");
 
+      // Check if password is less than 6 characters
       if (password.length < 6) {
         return res
           .status(400)
@@ -61,6 +64,7 @@ const authCtrl = {
       return res.status(500).json({ msg: error.message });
     }
   },
+  // @route   POST api/auth/login
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -99,31 +103,38 @@ const authCtrl = {
       return res.status(500).json({ msg: error.message });
     }
   },
+  // @route   POST api/auth/logout
   logout: async (req, res) => {
     try {
+      // Clear cookie
       res.clearCookie("refreshToken", { path: "/api/auth/refresh_token" });
       return res.json({ msg: "Logged out" });
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
   },
+  // @route   POST api/auth/refresh_token
   generateAccessToken: async (req, res) => {
     try {
+      // Get refresh token
       const rf_token = req.cookies.refreshToken;
       if (!rf_token) return res.status(400).json({ msg: "Please login now" });
 
+      // Verify refresh token
       jwt.verify(
         rf_token,
         process.env.JWT_REFRESH_SECRET,
         async (err, result) => {
           if (err) return res.status(400).json({ msg: "Please login now" });
 
+          // Check if user exists
           const user = await User.findById(result.id)
             .select("-password")
             .populate("followers following", "-password");
           if (!user)
             return res.status(400).json({ msg: "User does not exist" });
 
+          //Create jwt to authenticate user
           const accessToken = createAccessToken({ id: result.id });
 
           return res.json({
@@ -138,10 +149,12 @@ const authCtrl = {
   },
 };
 
+// Create jwt to authenticate user
 const createAccessToken = (payload) => {
   return jwt.sign(payload, process.env.JWT_ACCESS_SECRET, { expiresIn: "7d" });
 };
 
+// Create jwt to authenticate user
 const createRefreshToken = (payload) => {
   return jwt.sign(payload, process.env.JWT_REFRESH_SECRET, { expiresIn: "7d" });
 };

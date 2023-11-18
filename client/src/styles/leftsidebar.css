@@ -82,6 +82,11 @@
   font-weight: 700;
 }
 
+.leftSideBar-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .leftSideBar-logout {
   display: flex;
   align-items: center;

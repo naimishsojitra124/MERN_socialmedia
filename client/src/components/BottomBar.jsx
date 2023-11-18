@@ -4,10 +4,12 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const BottomBar = () => {
+  // State
   const { pathname } = useLocation();
   const auth = useSelector((state) => state.auth);
   return (
     <section className="BottomBar">
+      {/* Bottom icon links */}
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (
@@ -21,11 +23,10 @@ const BottomBar = () => {
             <img
               src={isActive ? link.isActive : link.imgURL}
               alt={link.label}
-              className={isActive ? "bottomBar-icon bottom-icon-active" : "bottomBar-icon"}
+              className="bottomBar-icon"
               height={23}
               width={23}
             />
-            {/* {link.label} */}
           </NavLink>
         );
       })}
@@ -37,21 +38,23 @@ const BottomBar = () => {
           height={25}
           width={25}
         />
-        {/* Inbox */}
       </NavLink>
-      <NavLink to="/profile/:userId" className="bottomBar-link">
+      <NavLink to={`/profile/${auth.user?._id}`} className="bottomBar-link">
         <img
-          src={
-            auth.user?.profilePicture
-              ? auth.user?.profilePicture
-              : "/assets/icons/profile-placeholder.svg"
+            src={
+                auth.user?.profilePicture
+                  ? auth.user?.profilePicture
+                  : "/assets/icons/profile-placeholder.svg"
+              }
+          alt="profilePicture"
+          className={
+            pathname === "/profile/:userId"
+              ? "bottomBar-icon profilePic pic-active"
+              : "bottomBar-icon profilePic"
           }
-          alt="profile"
-          className={pathname === "/profile/:userId" ? "bottomBar-icon profilePic pic-active bottom-icon-active" : "bottomBar-icon profilePic"}
           height={25}
           width={25}
         />
-        {/* Profile  */}
       </NavLink>
     </section>
   );

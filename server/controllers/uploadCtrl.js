@@ -19,6 +19,7 @@ const s3 = new AWS.S3();
 
 // Upload to S3 Bucket
 const uploadCtrl = {
+  // @route   POST api/upload/uploadImg/:userId
   uploadFile: async (req, res) => {
     try {
       const { file } = req;
@@ -27,6 +28,7 @@ const uploadCtrl = {
       //Validate
       if (!file) return res.status(400).json({ msg: "No file uploaded" });
 
+      //S3 Bucket params
       const params = {
         Bucket: AWS_BUCKET_NAME,
         Key: `profilePicture/${userId}/${Date.now()}${file.originalname}`,
@@ -45,8 +47,11 @@ const uploadCtrl = {
       return res.status(500).json({ msg: error.message });
     }
   },
+  // @route   DELETE api/upload/deleteImg/:filename
   deleteFile: async (req, res) => {},
+  // @route   POST api/upload/uploadPostImgs/:userId
   uploadFiles: async (req, res) => {},
+  // @route   DELETE api/upload/deletePostImgs/:filename
   deleteFiles: async (req, res) => {},
 };
 

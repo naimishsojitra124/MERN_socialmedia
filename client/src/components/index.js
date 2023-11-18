@@ -5,5 +5,6 @@ import Toast from "./shared/Toast";
 import BottomBar from "./BottomBar";
 import LeftSideBar from "./LeftSideBar";
 import TopBar from "./TopBar";
+import SearchModel from "./shared/SearchModel";
 
-export { NotFound, Loader, Notify, Toast, BottomBar, LeftSideBar, TopBar };
+export { NotFound, Loader, Notify, Toast, BottomBar, LeftSideBar, TopBar, SearchModel };

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./_auth/AuthLayout";
 import RootLayout from "./_root/RootLayout";
-import { Notify } from "./components/index";
+import { NotFound, Notify } from "./components/index";
 import Login from "./_auth/Forms/Login";
 import Register from "./_auth/Forms/Register";
 import {
@@ -53,6 +53,9 @@ function App() {
             <Route element={<PrivateRouter />}>
               <Route path="/inbox" element={<Chat />} />
             </Route>
+
+            {/* Not found */}
+          <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>

@@ -7,12 +7,12 @@
 .root-section {
   display: flex;
   flex: 1;
-  height: 100vh;
+  height: 100%;
 }
 
 @media screen and (max-width: 641px) {
   .RootLayout {
     height: 100vh;
     flex-direction: column;
-  }   
+  }
 }

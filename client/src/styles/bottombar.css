@@ -1,9 +1,9 @@
 .BottomBar {
   width: 100%;
-  height: 8%;
+  height: 3.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0 15px;
-  position: sticky;
+  padding: 0 0.9375rem;
+  position: fixed;
   bottom: 0;
   z-index: 2;
   display: flex;
@@ -24,6 +24,11 @@
 
 .bottom-Link-active {
   font-weight: 800;
+}
+
+.bottomBar-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .profilePic {

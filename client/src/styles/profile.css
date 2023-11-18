@@ -1,0 +1,12 @@
+.Profile {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    /* background: antiquewhite; */
+}
+
+@media screen and (max-width: 640px) {
+    .Profile {
+        width: 100%;
+    }
+}

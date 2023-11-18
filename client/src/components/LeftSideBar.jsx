@@ -1,11 +1,14 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sidebarLinks } from "../constants/index";
+import { logout } from "../redux/actions/authAction";
 
 const LeftSideBar = () => {
+  // State
   const auth = useSelector((state) => state.auth);
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
   return (
     <nav className="LeftSideBar">
       <div className="leftSideBar-top">
@@ -19,41 +22,26 @@ const LeftSideBar = () => {
           <h1>ShareMe</h1>
         </Link>
 
-        {/* <Link to="/profile" className="leftSideBar-profile">
-          <img
-            src={
-              auth.user?.profilePicture
-                ? auth.user?.profilePicture
-                : "/assets/icons/profile-placeholder.svg"
-            }
-            alt="profile"
-            width={55}
-            height={55}
-          />
-          <div className="leftSideBar-profile-names">
-            <p className="leftSideBar-name">{auth.user?.name}</p>
-            <p className="leftSideBar-username">@{auth.user?.username}</p>
-          </div>
-        </Link> */}
-
+        {/* Left side icon links */}
         <div className="leftSideBar-links">
           {sidebarLinks.map((link) => {
             const isActive = pathname === link.route;
             return (
-              <NavLink to={link.route}
+              <NavLink
+                to={link.route}
                 className={
                   isActive ? "leftSideBar-link active" : "leftSideBar-link"
                 }
                 key={link.label}
               >
-                  <img
-                    src={isActive ? link.isActive : link.imgURL}
-                    alt={link.label}
-                    className={
-                      isActive ? "leftSideBar-icon active" : "leftSideBar-icon"
-                    }
-                  />
-                  {link.label}
+                <img
+                  src={isActive ? link.isActive : link.imgURL}
+                  alt={link.label}
+                  className={
+                    isActive ? "leftSideBar-icon active" : "leftSideBar-icon"
+                  }
+                />
+                {link.label}
               </NavLink>
             );
           })}
@@ -61,23 +49,37 @@ const LeftSideBar = () => {
             <img
               src="/assets/icons/chat.svg"
               alt="inbox"
-              // className={isActive ? "leftSideBar-icon active" : "leftSideBar-icon"}
               className="leftSideBar-icon"
             />
-            Inbox
+            Messages
           </NavLink>
-          <NavLink to="/profile/:userId" className="leftSideBar-link">
+          <NavLink
+            to={`/profile/${auth.user?._id}`}
+            className="leftSideBar-link"
+          >
             <img
-              src={auth.user?.profilePicture ? auth.user?.profilePicture : "/assets/icons/profile-placeholder.svg"}
-              alt="profile"
-              className="leftSideBar-icon"
+              src={
+                auth.user?.profilePicture
+                  ? auth.user?.profilePicture
+                  : "/assets/icons/profile-placeholder.svg"
+              }
+              alt="profilePicture"
+              className={
+                pathname === "/profile/:userId"
+                  ? "leftSideBar-icon profilePic pic-active"
+                  : "leftSideBar-icon profilePic"
+              }
             />
             Profile
           </NavLink>
 
           <NavLink to="/account/edit" className="leftSideBar-link">
             <img
-              src={pathname === "/account/edit" ? "/assets/icons/settings-solid.svg" : "/assets/icons/settings.svg"}
+              src={
+                pathname === "/account/edit"
+                  ? "/assets/icons/settings-solid.svg"
+                  : "/assets/icons/settings.svg"
+              }
               alt="settings"
               className="leftSideBar-icon"
             />
@@ -85,7 +87,12 @@ const LeftSideBar = () => {
           </NavLink>
         </div>
       </div>
-      <button className="leftSideBar-logout">
+      <button
+        className="leftSideBar-logout"
+        onClick={() => {
+          dispatch(logout());
+        }}
+      >
         <img src="/assets/icons/logout.svg" alt="logout" />
         Logout
       </button>
