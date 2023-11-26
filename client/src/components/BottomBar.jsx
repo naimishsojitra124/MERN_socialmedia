@@ -8,55 +8,68 @@ const BottomBar = () => {
   const { pathname } = useLocation();
   const auth = useSelector((state) => state.auth);
   return (
-    <section className="BottomBar">
-      {/* Bottom icon links */}
-      {bottombarLinks.map((link) => {
-        const isActive = pathname === link.route;
-        return (
-          <NavLink
-            to={link.route}
-            className={
-              isActive ? "bottomBar-link bottom-Link-active" : "bottomBar-link"
-            }
-            key={link.label}
-          >
-            <img
-              src={isActive ? link.isActive : link.imgURL}
-              alt={link.label}
-              className="bottomBar-icon"
-              height={23}
-              width={23}
-            />
-          </NavLink>
-        );
-      })}
-      <NavLink to="/inbox" className="bottomBar-link">
-        <img
-          src="/assets/icons/chat.svg"
-          alt="inbox"
-          className="bottomBar-icon"
-          height={25}
-          width={25}
-        />
-      </NavLink>
-      <NavLink to={`/profile/${auth.user?._id}`} className="bottomBar-link">
-        <img
-            src={
-                auth.user?.profilePicture
-                  ? auth.user?.profilePicture
-                  : "/assets/icons/profile-placeholder.svg"
-              }
-          alt="profilePicture"
-          className={
-            pathname === "/profile/:userId"
-              ? "bottomBar-icon profilePic pic-active"
-              : "bottomBar-icon profilePic"
-          }
-          height={25}
-          width={25}
-        />
-      </NavLink>
-    </section>
+    <>
+      {pathname === "/account/edit" ? (
+        <></>
+      ) : (
+        <>
+          <section className="BottomBar">
+            {/* Bottom icon links */}
+            {bottombarLinks.map((link) => {
+              const isActive = pathname === link.route;
+              return (
+                <NavLink
+                  to={link.route}
+                  className={
+                    isActive
+                      ? "bottomBar-link bottom-Link-active"
+                      : "bottomBar-link"
+                  }
+                  key={link.label}
+                >
+                  <img
+                    src={isActive ? link.isActive : link.imgURL}
+                    alt={link.label}
+                    className="bottomBar-icon"
+                    height={23}
+                    width={23}
+                  />
+                </NavLink>
+              );
+            })}
+            <NavLink to="/inbox" className="bottomBar-link">
+              <img
+                src="/assets/icons/chat.svg"
+                alt="inbox"
+                className="bottomBar-icon"
+                height={25}
+                width={25}
+              />
+            </NavLink>
+            <NavLink
+              to={`/profile/${auth.user?._id}`}
+              className="bottomBar-link"
+            >
+              <img
+                src={
+                  auth.user?.profilePicture
+                    ? auth.user?.profilePicture
+                    : "/assets/icons/profile-placeholder.svg"
+                }
+                alt="profilePicture"
+                className={
+                  pathname === "/profile/:userId"
+                    ? "bottomBar-icon profilePic pic-active"
+                    : "bottomBar-icon profilePic"
+                }
+                height={25}
+                width={25}
+              />
+            </NavLink>
+          </section>
+        </>
+      )}
+    </>
   );
 };
 

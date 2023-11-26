@@ -1,11 +1,13 @@
 .TopBar {
-  height: 60px;
+  height: 50px;
+  min-height: 50px;
   width: 100%;
+  background: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0 15px;
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .topBar-container {

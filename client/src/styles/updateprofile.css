@@ -1,0 +1,149 @@
+.UpdateProfile {
+  height: 100%;
+  width: 100%;
+  /* background: antiquewhite; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-profile-container {
+  width: 80%;
+  height: 90%;
+  position: relative;
+  /* background: aquamarine; */
+  border: 1px solid #dbdbdb;
+}
+
+.update-profile-container input[type="radio"] {
+  display: none;
+}
+
+.tab-container {
+  float: left;
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid #dbdbdb;
+}
+
+.tab-container label {
+  display: block;
+  width: 100%;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0 0.625rem;
+}
+
+.tab-container label:hover {
+  cursor: pointer;
+  background: #f5f5f5;
+  transition: all 0.1s ease-in-out;
+}
+
+.tab-container label span {
+  font-weight: 600;
+  color: #838daa;
+}
+
+.tab-container label span:hover {
+  color: #4c40ee;
+}
+
+#edit-profile:checked ~ .tab-container .edit-profile span,
+#change-password:checked ~ .tab-container .change-password span {
+  color: #4c40ee;
+}
+
+#edit-profile:checked ~ .tab-content .change-password-form,
+#change-password:checked ~ .tab-content > .edit-profile-form {
+  display: none;
+}
+
+.tab-content {
+    float: right;
+    width: 80%;
+    height: 100%;
+    /* background: aquamarine; */
+    padding: 0.8rem 0.2rem;
+    overflow: auto;
+}
+
+.indicator {
+  position: absolute;
+  width: 0.1875rem;
+  height: 3.75rem;
+  background: #877eff;
+  left: 0;
+  top: 0;
+  transition: top 0.3s;
+  border-radius: 0.3125rem;
+}
+
+#edit-profile:checked ~ .tab-container .indicator {
+  top: 0;
+}
+
+#change-password:checked ~ .tab-container .indicator {
+  top: 3.75rem;
+}
+
+
+@media screen and (max-width: 640px) {
+  .update-profile-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tab-container {
+    width: 100%;
+    height: 3.125rem;
+    display: flex;
+    text-align: center;
+  }
+
+  .tab-container label {
+    width: 50%;
+    height: 3.125rem;
+    font-size: 1rem;
+    padding: 0;
+    border-right: 1px solid #dbdbdb;
+    justify-content: center;
+  }
+
+  .tab-container label:hover {
+    background: none;
+  }
+
+  .tab-container label:first-child {
+    border-right: 1px solid #dbdbdb;
+  }
+
+  .tab-content {
+    width: 100vw;
+    height: 100%;
+    /* padding: 0; */
+  }
+
+  .edit-profile-form {
+    overflow-y: auto;
+  }
+
+  .indicator {
+    width: 50%;
+    height: 0.1875rem;
+    transition: left 0.3s;
+  }
+
+  #edit-profile:checked ~ .tab-container .indicator {
+    left: 0;
+  }
+
+  #change-password:checked ~ .tab-container .indicator {
+    top: 0;
+    left: 50%;
+  }
+}

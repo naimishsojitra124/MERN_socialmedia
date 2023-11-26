@@ -6,5 +6,18 @@ import BottomBar from "./BottomBar";
 import LeftSideBar from "./LeftSideBar";
 import TopBar from "./TopBar";
 import SearchModel from "./shared/SearchModel";
+import EditProfileForm from "./shared/editProfile/EditProfileForm";
+import ChangePasswordForm from "./shared/editProfile/ChangePasswordForm";
 
-export { NotFound, Loader, Notify, Toast, BottomBar, LeftSideBar, TopBar, SearchModel };
+export {
+  NotFound,
+  Loader,
+  Notify,
+  Toast,
+  BottomBar,
+  LeftSideBar,
+  TopBar,
+  SearchModel,
+  EditProfileForm,
+  ChangePasswordForm,
+};

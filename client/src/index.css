@@ -60,3 +60,7 @@ body {
 @import url("./styles/profile.css");
 @import url("./styles/profileinfo.css");
 @import url("./styles//profileinfobuttons.css");
+
+/* Update Profile Styles */
+@import url("./styles/updateprofile.css");
+@import url("./styles//editprofileform.css")
