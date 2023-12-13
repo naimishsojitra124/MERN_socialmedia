@@ -23,36 +23,14 @@
   gap: 0.5rem;
   text-decoration: none;
   padding: 0 0.5rem;
-}
-
-/* .leftSideBar-profile {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
 }
 
-.leftSideBar-profile img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  object-fit: cover;
+.logo span {
+  font-family: "Lobster", sans-serif;
+  font-size: 1.5rem;
 }
-
-.leftSideBar-profile-names {
-  display: flex;
-  flex-direction: column;
-}
-
-.leftSideBar-name {
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.leftSideBar-username {
-  font-size: 0.9rem;
-  color: #8e8e8e;
-} */
 
 .leftSideBar-links {
   display: flex;
@@ -74,7 +52,7 @@
 }
 
 .leftSideBar-link:hover {
-  background-color: #ebeaea;
+  background-color: #f2f2f2;
 }
 
 .active {
@@ -103,7 +81,7 @@
 }
 
 @media screen and (max-width: 641px) {
-    .LeftSideBar {
-      display: none;
-    }   
+  .LeftSideBar {
+    display: none;
   }
+}

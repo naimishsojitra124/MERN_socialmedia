@@ -1,7 +1,6 @@
 .UpdateProfile {
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  /* background: antiquewhite; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,8 +90,11 @@
 
 
 @media screen and (max-width: 640px) {
+  .UpdateProfile {
+    width: 100vw;
+  }
   .update-profile-container {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -123,7 +125,7 @@
   }
 
   .tab-content {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     /* padding: 0; */
   }

@@ -63,7 +63,7 @@ const Register = () => {
                       placeholder="Enter your full name"
                       value={name}
                       onChange={handleChangeInput}
-                      style={{ border: alert.name ? "2px solid red" : "" }}
+                      style={{ border: alert.name ? "2px solid #ff0e41" : "" }}
                     />
                   </div>
                   <small>{alert.name ? alert.name : ""}</small>
@@ -78,7 +78,7 @@ const Register = () => {
                       placeholder="Enter your username"
                       value={username.toLowerCase().replace(/ /g, "")}
                       onChange={handleChangeInput}
-                      style={{ border: alert.username ? "2px solid red" : "" }}
+                      style={{ border: alert.username ? "2px solid #ff0e41" : "" }}
                     />
                   </div>
                   <small>{alert.username ? alert.username : ""}</small>
@@ -93,7 +93,7 @@ const Register = () => {
                       placeholder="Enter your email"
                       value={email}
                       onChange={handleChangeInput}
-                      style={{ border: alert.email ? "2px solid red" : "" }}
+                      style={{ border: alert.email ? "2px solid #ff0e41" : "" }}
                     />
                   </div>
                   <small>{alert.email ? alert.email : ""}</small>
@@ -111,7 +111,7 @@ const Register = () => {
                         value={password}
                         onChange={handleChangeInput}
                         style={{
-                          border: alert.password ? "2px solid red" : "",
+                          border: alert.password ? "2px solid #ff0e41" : "",
                         }}
                       />
                       <img
@@ -139,11 +139,10 @@ const Register = () => {
                   >
                     {alert.loading ? (
                       <div className="register-loader">
-                        <Loader />
+                        <Loader size="medium" stroke="white"/>
                         <span
                           style={{
-                            font: "1rem Poppins, sans-serif",
-                            color: "#29292d",
+                            color: "var(--neutral1-25)",
                           }}
                         >
                           Registering...

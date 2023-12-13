@@ -18,11 +18,23 @@ export const sidebarLinks = [
     isActive: "/assets/icons/saved.svg"
   },
   {
+    imgURL: "/assets/icons/chat.svg",
+    route: "/inbox",
+    label: "Messages",
+    isActive: "/assets/icons/chat-solid.svg"
+  },
+  {
     imgURL: "/assets/icons/add-post.svg",
     route: "/create-post",
     label: "Create Post",
     isActive: "/assets/icons/add-post-solid.svg"
   },
+  {
+    imgURL: "/assets/icons/settings.svg",
+    route: "/account/edit",
+    label: "Settings",
+    isActive: "/assets/icons/settings-solid.svg"
+  }
 ];
 
 export const bottombarLinks = [

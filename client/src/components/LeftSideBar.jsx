@@ -19,7 +19,7 @@ const LeftSideBar = () => {
             width={28}
             height={28}
           />
-          <h1>ShareMe</h1>
+          <span>ShareME</span>
         </Link>
 
         {/* Left side icon links */}
@@ -45,14 +45,7 @@ const LeftSideBar = () => {
               </NavLink>
             );
           })}
-          <NavLink to="/inbox" className="leftSideBar-link">
-            <img
-              src="/assets/icons/chat.svg"
-              alt="inbox"
-              className="leftSideBar-icon"
-            />
-            Messages
-          </NavLink>
+
           <NavLink
             to={`/profile/${auth.user?._id}`}
             className="leftSideBar-link"
@@ -69,21 +62,9 @@ const LeftSideBar = () => {
                   ? "leftSideBar-icon profilePic pic-active"
                   : "leftSideBar-icon profilePic"
               }
+              loading="lazy"
             />
             Profile
-          </NavLink>
-
-          <NavLink to="/account/edit" className="leftSideBar-link">
-            <img
-              src={
-                pathname === "/account/edit"
-                  ? "/assets/icons/settings-solid.svg"
-                  : "/assets/icons/settings.svg"
-              }
-              alt="settings"
-              className="leftSideBar-icon"
-            />
-            Settings
           </NavLink>
         </div>
       </div>

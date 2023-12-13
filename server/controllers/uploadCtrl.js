@@ -19,8 +19,8 @@ const s3 = new AWS.S3();
 
 // Upload to S3 Bucket
 const uploadCtrl = {
-  // @route   POST api/upload/uploadImg/:userId
-  uploadFile: async (req, res) => {
+  // @route   POST api/upload/uploadprofilePic/:userId
+  uploadprofilePic: async (req, res) => {
     try {
       const { file } = req;
       const { userId } = req.params;
@@ -37,7 +37,7 @@ const uploadCtrl = {
       };
 
       //Upload image to S3 Bucket
-      s3.upload(params, (error, data) => {
+      await s3.upload(params, (error, data) => {
         if (error) {
           return res.status(400).json({ msg: error.message });
         }
@@ -47,12 +47,26 @@ const uploadCtrl = {
       return res.status(500).json({ msg: error.message });
     }
   },
-  // @route   DELETE api/upload/deleteImg/:filename
-  deleteFile: async (req, res) => {},
+  // @route   DELETE api/upload/deleteprofilePic/:filename/:userId
+  deleteprofilePic: async (req, res) => {
+    const {filename, userId} = req.params;
+
+    const params = {
+      Bucket: AWS_BUCKET_NAME,
+      Key: `profilePicture/${userId}/${filename}`
+    }
+
+    await s3.deleteObject(params, (error, data) => {
+      if (error) {
+        return res.status(400).json({ msg: error.message });
+      }
+      return res.status(200).json({ msg: "Image deleted successfully" });
+    });
+  },
   // @route   POST api/upload/uploadPostImgs/:userId
-  uploadFiles: async (req, res) => {},
-  // @route   DELETE api/upload/deletePostImgs/:filename
-  deleteFiles: async (req, res) => {},
+  uploadPostImgs: async (req, res) => {},
+  // @route   DELETE api/upload/deletePostImgs/:filename/:userId
+  deletePostImgs: async (req, res) => {},
 };
 
 module.exports = uploadCtrl;

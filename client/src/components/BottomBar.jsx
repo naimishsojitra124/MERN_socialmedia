@@ -64,6 +64,7 @@ const BottomBar = () => {
                 }
                 height={25}
                 width={25}
+                loading="lazy"
               />
             </NavLink>
           </section>

@@ -7,6 +7,7 @@ const validation = ({ username, name, email, password }) => {
     err.username = "Username must be between 3 and 20 characters";
   } else if (username.search(/\s/) > -1) {
     err.username = "Username must not contain spaces";
+    // eslint-disable-next-line
   } else if (username.search(/^[a-z0-9_\.]+$/) < 0) {
     err.username =
       "Username must contain only lowercase letters, numbers, underscores(_), and periods(.)";

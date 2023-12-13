@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const SearchModel = ({ user, handleClose }) => {
-  const auth = useSelector((state) => state.auth);
+  // const auth = useSelector((state) => state.auth);
   return (
     <div className="searchodel-container">
       <NavLink
@@ -20,6 +20,7 @@ const SearchModel = ({ user, handleClose }) => {
           }
           alt="profile"
           className="searchmodel-profilePic"
+          loading="lazy"
         />
         <div className="searchmodel-userinfo">
           <h4 className="searchmodel-username">{user?.username}</h4>

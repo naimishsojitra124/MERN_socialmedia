@@ -14,8 +14,8 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
-const MONGO_URL = process.env.MONGO_URL;
-mongoose.connect(MONGO_URL, {
+const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => console.log("Connected to MongoDB"))

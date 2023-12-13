@@ -8,6 +8,9 @@ import TopBar from "./TopBar";
 import SearchModel from "./shared/SearchModel";
 import EditProfileForm from "./shared/editProfile/EditProfileForm";
 import ChangePasswordForm from "./shared/editProfile/ChangePasswordForm";
+import ProfileInfo from "./shared/profile/ProfileInfo";
+import ProfileInfoButtons from "./shared/profile/ProfileInfoButtons";
+import Posts from "./shared/post/Posts";
 
 export {
   NotFound,
@@ -20,4 +23,8 @@ export {
   SearchModel,
   EditProfileForm,
   ChangePasswordForm,
+  ProfileInfo,
+  ProfileInfoButtons,
+  Posts,
+
 };

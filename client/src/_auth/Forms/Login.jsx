@@ -51,7 +51,7 @@ const Login = () => {
               <p>
                 To keep connected with us please login with your personal info
               </p>
-              <form action="" onSubmit={handleSubmit}>
+              <form action="" onSubmit={handleSubmit} className="login-form">
                 <div className="login-form-group">
                   <div className="login-input">
                     <label htmlFor="email">Email</label>
@@ -100,11 +100,10 @@ const Login = () => {
                   >
                     {alert.loading ? (
                       <div className="login-loader">
-                        <Loader />
+                        <Loader size="medium" stroke="white" />
                         <span
                           style={{
-                            font: "1rem Poppins, sans-serif",
-                            color: "#29292d",
+                            color: "var(--neutral1-25)",
                           }}
                         >
                           Logging in...

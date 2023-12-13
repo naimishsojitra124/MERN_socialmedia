@@ -1,0 +1,153 @@
+:root {
+  /* Primary Color */
+  --primary-25: #c5cae9; /* Lightened version of #3f51b5 */
+  --primary-50: #9fa8da;
+  --primary-100: #7986cb;
+  --primary-200: #5c6bc0;
+  --primary-300: #3f51b5;
+  --primary-400: #3949ab;
+  --primary-500: #303f9f; /* Original color */
+  --primary-600: #283593;
+  --primary-700: #1a237e;
+  --primary-800: #151d4e;
+
+  /* Secondary Color */
+  --secondary-25: #ffc1e3; /* Lightened version of #ff4081 */
+  --secondary-50: #ffa4d1;
+  --secondary-100: #ff80ab;
+  --secondary-200: #ff4081;
+  --secondary-300: #f50057; /* Original color */
+  --secondary-400: #c51162;
+  --secondary-500: #b0003a;
+  --secondary-600: #ab003c;
+  --secondary-700: #880026;
+  --secondary-800: #60001d;
+
+  /* Accent Color 1 */
+  --accent1-25: #c8e6c9; /* Lightened version of #4caf50 */
+  --accent1-50: #a5d6a7;
+  --accent1-100: #81c784;
+  --accent1-200: #4caf50;
+  --accent1-300: #43a047; /* Original color */
+  --accent1-400: #388e3c;
+  --accent1-500: #2e7d32;
+  --accent1-600: #1b5e20;
+  --accent1-700: #145214;
+  --accent1-800: #113c11;
+
+  /* Accent Color 2 */
+  --accent2-25: #ffb74d; /* Lightened version of #ff5722 */
+  --accent2-50: #ff9800;
+  --accent2-100: #fb8c00;
+  --accent2-200: #ff5722;
+  --accent2-300: #f4511e; /* Original color */
+  --accent2-400: #e64a19;
+  --accent2-500: #d84315;
+  --accent2-600: #bf360c;
+  --accent2-700: #a52e09;
+  --accent2-800: #933a0a;
+
+  /* Neutral Color 1 */
+  --neutral1-25: #f5f5f5; /* Lightened version of #eeeeee */
+  --neutral1-50: #e0e0e0;
+  --neutral1-100: #bdbdbd;
+  --neutral1-200: #eeeeee;
+  --neutral1-300: #e0e0e0;
+  --neutral1-400: #bdbdbd;
+  --neutral1-500: #757575; /* Original color */
+  --neutral1-600: #616161;
+  --neutral1-700: #424242;
+  --neutral1-800: #303030;
+
+  /* Neutral Color 2 */
+  --neutral2-25: #757575; /* Lightened version of #424242 */
+  --neutral2-50: #616161;
+  --neutral2-100: #424242;
+  --neutral2-200: #303030;
+  --neutral2-300: #212121;
+  --neutral2-400: #121212;
+  --neutral2-500: #424242; /* Original color */
+  --neutral2-600: #303030;
+  --neutral2-700: #212121;
+  --neutral2-800: #121212;
+
+  /* Additional Colors */
+  --success-25: #d0f8ce;
+  --success-50: #a3e9a4;
+  --success-100: #72d572;
+  --success-200: #42bd41;
+  --success-300: #4caf50;
+  --success-400: #4caf50;
+  --success-500: #4caf50;
+  --success-600: #4caf50;
+  --success-700: #4caf50;
+  --success-800: #4caf50;
+
+  --danger-25: #ffd4d4;
+  --danger-50: #ffb3b3;
+  --danger-100: #ff8a80;
+  --danger-200: #ff5252;
+  --danger-300: #ff4081;
+  --danger-400: #ff3674;
+  --danger-500: #ff2c67;
+  --danger-600: #ff225a;
+  --danger-700: #ff184e;
+  --danger-800: #ff0e41;
+
+  --warning-25: #fff7e0;
+  --warning-50: #ffecb3;
+  --warning-100: #ffe082;
+  --warning-200: #ffd54f;
+  --warning-300: #ff5722;
+  --warning-400: #ff4e1e;
+  --warning-500: #ff4419;
+  --warning-600: #ff3b15;
+  --warning-700: #ff310f;
+  --warning-800: #ff280a;
+
+  --info-25: #e1f5fe;
+  --info-50: #b3e0f2;
+  --info-100: #81d4fa;
+  --info-200: #4fc3f7;
+  --info-300: #2196f3;
+  --info-400: #1e88e5;
+  --info-500: #1976d2;
+  --info-600: #1565c0;
+  --info-700: #0d47a1;
+  --info-800: #0a3e72;
+
+  /* Define breakpoints */
+  --mobile-breakpoint: 576px;
+  --tablet-breakpoint: 768px;
+  --desktop-breakpoint: 992px;
+  --large-desktop-breakpoint: 1200px;
+
+  /* Define font sizes, weights, and line heights for different breakpoints */
+  --font-size-small: 0.8rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.125rem;
+  --font-size-xlarge: 1.25rem;
+  --font-size-xxlarge: 1.5rem;
+  --font-size-xxxlarge: 1.75rem;
+  --font-size-huge: 2rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-small: 1.4;
+  --line-height-medium: 1.6;
+  --line-height-large: 1.8;
+
+  /* @media (min-width: var(--tablet-breakpoint)) {
+    --font-size-small: 1rem;
+    --font-size-medium: 1.125rem;
+    --font-size-large: 1.25rem;
+
+    --line-height-small: 1.5;
+    --line-height-medium: 1.7;
+    --line-height-large: 1.9;
+  } */
+}

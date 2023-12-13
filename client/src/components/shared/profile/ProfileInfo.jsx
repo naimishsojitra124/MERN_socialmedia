@@ -32,6 +32,7 @@ const ProfileInfo = () => {
                 src={user?.profilePicture ? user?.profilePicture : "/assets/icons/profile-placeholder.svg"}
                 alt="profile-pic"
                 className="profile-pic"
+                loading="lazy"
               />
             </div>
             <div className="profile-info-top-right">
@@ -68,7 +69,7 @@ const ProfileInfo = () => {
             <div className="profile-info-bio">
               {user?.bio ? <span>𝓛𝓲𝓿𝓮📿𝓛𝓪𝓾𝓰𝓱😊𝓛𝓸𝓥𝓮🤍</span> : "No Bio"}
             </div>
-            {user?.webbsite && (
+            {user?.website && (
               <div className="profile-info-website">
                 <img
                   src="/assets/icons/link.svg"
@@ -77,7 +78,7 @@ const ProfileInfo = () => {
                   height={16}
                 />
                 <a href={user?.website} target="_blank" rel="noreferrer">
-                  {user?.website}sdfg
+                  {user?.website}
                 </a>
               </div>
             )}

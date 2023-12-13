@@ -1,14 +1,13 @@
-import React from 'react'
-import ProfileInfo from '../../components/shared/profile/ProfileInfo'
-import Posts from '../../components/shared/Posts'
+import React from "react";
+import { ProfileInfo, Posts } from "../../components/index";
 
 const Profile = () => {
   return (
-    <div className='Profile'>
+    <div className="Profile">
       <ProfileInfo />
       <Posts />
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

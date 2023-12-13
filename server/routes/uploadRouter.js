@@ -5,12 +5,12 @@ const multer = require("multer");
 const storage = multer.memoryStorage({});
 const upload = multer({ storage });
 
-router.post("/uploadImg/:userId", upload.single("file"), uploadCtrl.uploadFile);
+router.post("/uploadprofilePic/:userId", upload.single("file"), uploadCtrl.uploadprofilePic);
 
-router.delete("/deleteImg/:filename", uploadCtrl.deleteFile);
+router.delete("/deleteprofilePic/:filename/:userId", uploadCtrl.deleteprofilePic);
 
-router.post("/uploadPostImgs/:userId", upload.array("files"), uploadCtrl.uploadFiles);
+router.post("/uploadPostImgs/:userId", upload.array("files"), uploadCtrl.uploadPostImgs);
 
-router.delete("/deletePostImgs/:filename", uploadCtrl.deleteFiles);
+router.delete("/deletePostImgs/:filename/:userId", uploadCtrl.deletePostImgs);
 
 module.exports = router;
