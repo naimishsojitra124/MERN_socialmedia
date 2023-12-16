@@ -84,7 +84,7 @@ const Explore = () => {
           )}
           <div className="search-results">
             {search &&
-              users.length > 1 &&
+              users.length > 0 &&
               users.map((user) => (
                   <SearchModel key={user._id} user={user} handleClose={handleClose}/>
               ))}

@@ -19,17 +19,17 @@
 }
 
 .logo {
-  display: flex;
-  gap: 0.5rem;
   text-decoration: none;
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .logo span {
   font-family: "Lobster", sans-serif;
-  font-size: 1.5rem;
+  font-size: var(--font-size-xxlarge);
+  padding: 0.2rem 0 0 0;
 }
 
 .leftSideBar-links {
@@ -46,18 +46,18 @@
   padding: 1rem 0.5rem;
   border-radius: 0.5rem;
   transition: all 0.2s ease;
-  color: #000;
-  font-size: 1rem;
-  font-weight: 600;
+  color: var(--neutral2-800);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-semibold);
 }
 
 .leftSideBar-link:hover {
-  background-color: #f2f2f2;
+  background: var(--neutral1-50)
 }
 
 .active {
-  background-color: #ebeaea;
-  font-weight: 700;
+  background: var(--neutral1-50);
+  font-weight: var(--font-weight-bold);
 }
 
 .leftSideBar-icon {
@@ -74,13 +74,13 @@
   outline: none;
   cursor: pointer;
   gap: 0.5rem;
-  color: #ed4956;
+  color: var(--danger-800);
   margin: 0 1rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-semibold);
 }
 
-@media screen and (max-width: 641px) {
+@media screen and (max-width: 769px) {
   .LeftSideBar {
     display: none;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { logout } from "../redux/actions/authAction";
 
 const TopBar = () => {
@@ -12,6 +12,7 @@ const TopBar = () => {
   const [onSetting, setOnSetting] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {pathname} = useLocation();
 
   // Effect to get user profile
   useEffect(() => {
@@ -23,22 +24,25 @@ const TopBar = () => {
     }
   }, [userId, auth, profile.users]);
   return (
-    <section className="TopBar">
+    <>
+    {pathname === "/explore" ? <></> : (
+      <section className="TopBar">
       <div className="topBar-container">
         <Link to="/" className="topBar-left">
           <img
             src="/assets/icons/camera-retro-solid.svg"
             alt="logo"
+            className="topBar-logo"
             width={23}
             height={23}
           />
-          {/* <h1>ShareMe</h1> */}
+          {pathname === `/profile/${userId}` ? <></> : <h1>ShareMe</h1>}
         </Link>
         {userId && (
           <div className="topBar-center">
             <div className="topBar-username">
               {userData.map((user) => {
-                return <span>@{user?.username}</span>;
+                return <span key={user?._id}>@{user?.username}</span>;
               })}
             </div>
           </div>
@@ -69,7 +73,7 @@ const TopBar = () => {
         <div className="settings" onClick={() => setOnSetting(!onSetting)}>
           <div className="settings-container">
             <button
-              className="settings-btn"
+              className="settings-btn setting"
               onClick={(e) => {
                 e.preventDefault();
                 setOnSetting(false);
@@ -106,6 +110,8 @@ const TopBar = () => {
         </div>
       )}
     </section>
+    )}
+    </>
   );
 };
 

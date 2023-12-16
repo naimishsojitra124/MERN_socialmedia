@@ -1,8 +1,8 @@
 .BottomBar {
   width: 100%;
-  height: 3.75rem;
+  height: 3.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0 0.9375rem;
+  padding: 0 var(--font-size-small);
   position: fixed;
   bottom: 0;
   z-index: 2;
@@ -12,18 +12,7 @@
 }
 
 .bottomBar-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
   background: transparent;
-  gap: 0.5rem;
-  color: #29292d;
-  font-size:  0.8rem;
-}
-
-.bottom-Link-active {
-  font-weight: 800;
 }
 
 .bottomBar-icon {
@@ -31,17 +20,18 @@
   height: 1.5rem;
 }
 
-.profilePic {
+.bottomBar-profileIcon {
+  height: 1.6rem;
+  width: 1.6rem;
   border-radius: 50%;
-  width: 1.8rem;
-  height: 1.8rem;
   object-fit: cover;
 }
 
-.pic-active {
-  border: 2px solid #000;
+.bottom-profile-active {
+  border: 2px solid var(--neutral2-800);
 }
-@media screen and (min-width: 641px) {
+
+@media screen and (min-width: 769px) {
   .BottomBar {
     display: none;
   }

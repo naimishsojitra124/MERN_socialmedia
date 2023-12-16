@@ -22,7 +22,7 @@
 
 .profile-info-top-right {
   width: 40rem;
-  min-width: 40rem;
+  max-width: 40rem;
 }
 
 .profile-info-right-top {

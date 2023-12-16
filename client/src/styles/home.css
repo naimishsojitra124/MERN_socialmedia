@@ -2,3 +2,11 @@
     height: calc(100vh - 120px);
     display: flex;
 }
+
+@media screen and (max-width: 769px) {
+    .Home {
+        height: calc(100vh - 7rem);
+        margin: auto;
+    }
+    
+}

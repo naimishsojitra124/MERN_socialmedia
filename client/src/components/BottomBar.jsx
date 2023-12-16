@@ -7,6 +7,9 @@ const BottomBar = () => {
   // State
   const { pathname } = useLocation();
   const auth = useSelector((state) => state.auth);
+  console.log(pathname);
+  console.log(auth.user?._id);
+  console.log(pathname === `/profile/${auth.user?._id}` ? "true" : "false");
   return (
     <>
       {pathname === "/account/edit" ? (
@@ -20,11 +23,7 @@ const BottomBar = () => {
               return (
                 <NavLink
                   to={link.route}
-                  className={
-                    isActive
-                      ? "bottomBar-link bottom-Link-active"
-                      : "bottomBar-link"
-                  }
+                  className="bottomBar-link"
                   key={link.label}
                 >
                   <img
@@ -58,12 +57,10 @@ const BottomBar = () => {
                 }
                 alt="profilePicture"
                 className={
-                  pathname === "/profile/:userId"
-                    ? "bottomBar-icon profilePic pic-active"
-                    : "bottomBar-icon profilePic"
+                  pathname === `/profile/${auth.user?._id}`
+                    ? "bottomBar-profileIcon bottom-profile-active"
+                    : "bottomBar-profileIcon"
                 }
-                height={25}
-                width={25}
                 loading="lazy"
               />
             </NavLink>
