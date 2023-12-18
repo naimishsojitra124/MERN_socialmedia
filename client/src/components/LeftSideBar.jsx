@@ -14,12 +14,10 @@ const LeftSideBar = () => {
       <div className="leftSideBar-top">
         <Link to="/" className="logo">
           <img
-            src="/assets/icons/camera-retro-solid.svg"
+            src="/assets/icons/snapStitch.svg"
             alt="logo"
-            width={28}
-            height={28}
           />
-          <span>ShareME</span>
+          <span>SnapThread</span>
         </Link>
 
         {/* Left side icon links */}
@@ -58,8 +56,8 @@ const LeftSideBar = () => {
               }
               alt="profilePicture"
               className={
-                pathname === "/profile/:userId"
-                  ? "leftSideBar-icon profilePic pic-active"
+                pathname === `/profile/${auth.user?._id}`
+                  ? "leftSideBar-icon profilePic leftSideBar-pic-active"
                   : "leftSideBar-icon profilePic"
               }
               loading="lazy"

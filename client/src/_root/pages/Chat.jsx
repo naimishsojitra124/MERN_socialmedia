@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Helmet } from "react-helmet";
 
 const Chat = () => {
   return (
-    <div>Chat</div>
-  )
-}
+    <>
+      <Helmet>
+        <title>(1) Inbox • Chats</title>
+      </Helmet>
+      <div>Chat</div>
+    </>
+  );
+};
 
-export default Chat
+export default Chat;

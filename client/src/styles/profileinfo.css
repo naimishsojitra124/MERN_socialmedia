@@ -8,7 +8,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .profile-pic {
@@ -27,7 +27,7 @@
 
 .profile-info-right-top {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: flex-start;
 }
 
@@ -39,15 +39,15 @@
 }
 
 .profile-info-username {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #838daa;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral1-500);
   margin: 0.5rem 0 0 0;
 }
 
 .profile-info-name span {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: var(--font-size-xxlarge);
+  font-weight: var(--font-weight-bold);
 }
 
 .profile-info-right-bottom {
@@ -69,20 +69,27 @@
 }
 
 .profile-info span:nth-of-type(1) {
-  color: #6358fd;
-  font-size: 1.05rem;
-  font-weight: 600;
+  color: var(--primary-600);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
+}
+
+
+.profile-info span:nth-of-type(1):hover {
+  text-decoration: underline;
 }
 
 .profile-info:first-child span:nth-of-type(1):hover {
   cursor: text;
+  text-decoration: none;
 }
 
 .profile-info span:nth-of-type(2) {
-  color: #838daa;
+  color: var(--neutral1-500);
+  opacity: 0.8;
   font-size: 0.938rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .profile-info-bottom {
@@ -91,9 +98,9 @@
 }
 
 .profile-info-bio {
-  color: #838daa;
-  font-size: 0.938rem;
-  font-weight: 400;
+  color: var(--neutral1-600);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
 }
 
 .profile-info-website {
@@ -106,13 +113,17 @@
 
 .profile-info-website a {
     text-decoration: none;
-    color: #6358fd;
-    font-size: 0.938rem;
-    font-weight: 600;
+    color: var(--primary-300);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semibold);
+}
+
+.profile-info-website a:hover {
+    text-decoration: underline;
 }
 
 .profile-info-website a:visited {
-    color: #5045f1;
+    color: var(--primary-700);
 }
 
 .profile-buttons-mobile {
@@ -135,7 +146,7 @@
   }
 
   .profile-info-name span {
-    font-size: 1.2rem;
+    font-size: var(--font-size-xlarge);
   }
 
   .profile-pic {

@@ -49,7 +49,7 @@ const Register = () => {
           >
             <div className="register-text">
               <h1>Create a new account</h1>
-              <p>To use shareme, Please enter your details</p>
+              <p>To use SnapThread, Please enter your details</p>
             </div>
             <div className="register-form">
               <form onSubmit={handleSubmit}>

@@ -26,10 +26,15 @@
   gap: 0.5rem;
 }
 
+.logo img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
 .logo span {
   font-family: "Lobster", sans-serif;
   font-size: var(--font-size-xxlarge);
-  padding: 0.2rem 0 0 0;
+  /* padding: 0.2rem 0 0 0; */
 }
 
 .leftSideBar-links {
@@ -78,6 +83,17 @@
   margin: 0 1rem;
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-semibold);
+}
+
+.profilePic {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.leftSideBar-pic-active {
+  border: 2px solid var(--neutral2-800);
 }
 
 @media screen and (max-width: 769px) {

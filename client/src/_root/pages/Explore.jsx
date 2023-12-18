@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataAPI } from "../../utils/fetchData";
 import { TYPES } from "../../redux/actions/authAction";
@@ -41,6 +42,10 @@ const Explore = () => {
 
   // Handlers
   return (
+    <>
+    <Helmet>
+        <title>Explore</title>
+      </Helmet>
     <div className="Explore">
       <div className="explore-top">
         <form
@@ -52,8 +57,6 @@ const Explore = () => {
             src="/assets/icons/search.svg"
             alt="search"
             className="explore-top-search-icon"
-            width={18}
-            height={18}
           />
           <input
             type="text"
@@ -64,6 +67,7 @@ const Explore = () => {
             onChange={(e) =>
               setSearch(e.target.value.toLowerCase().replace(/ /g, ""))
             }
+            maxLength={20}
           />
           {loading ? (
             <img
@@ -93,6 +97,7 @@ const Explore = () => {
       </div>
       <div className="explore-bottom">Bottom</div>
     </div>
+    </>
   );
 };
 

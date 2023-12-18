@@ -25,10 +25,10 @@ const ProfileInfoButtons = ({ user }) => {
         </button>
       ) : (
         <>
-          <button className="btn follow-btn">
+          {/* <button className="btn follow-btn">
             <img src="/assets/icons/follow.svg" alt="follow" />
             <span>Follow</span>
-          </button>
+          </button> */}
           <button className="btn unfollow-btn">
             <span>Following</span>
             <img src="/assets/icons/unfollow.svg" alt="follow" />

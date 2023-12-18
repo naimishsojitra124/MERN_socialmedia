@@ -47,14 +47,14 @@ const EditProfileForm = () => {
   // Handle submit form event
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: PROFILE_TYPES.LOADING, payload: { loading: true } });
     if (img) {
       const form = new FormData();
       form.append("file", img);
-
+      
       try {
         // If user has no profile picture
         if (auth.user?.profilePicture === "") {
+          dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
           const res = await postDataAPI(
             `upload/uploadprofilePic/${auth.user?._id}`,
             form
@@ -111,7 +111,7 @@ const EditProfileForm = () => {
           />
         </div>
         <div className="edit-header-right">
-          <div className="edit-header-username">@naimishsojitra124</div>
+          <div className="edit-header-username">@{auth.user?.username}</div>
           <div className="edit-header-img-input">
             <input
               type="file"
@@ -248,11 +248,7 @@ const EditProfileForm = () => {
               enableSearch
               disableSearchIcon
               inputClass="edit-body-phone-input"
-              inputStyle={{
-                width: "80%",
-                height: "2.1rem",
-                border: "1px solid #e6e6e6",
-              }}
+              containerClass="edit-body-phone-container"
               inputProps={{
                 name: "mobile",
                 placeholder: "+91 12345-67890",
@@ -312,7 +308,7 @@ const EditProfileForm = () => {
         >
           {profile.loading ? (
             <>
-              <Loader size="small" />
+              <Loader size="small" stroke="white" />
               Saving...
             </>
           ) : (

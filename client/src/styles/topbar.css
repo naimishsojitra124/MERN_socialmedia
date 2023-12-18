@@ -31,6 +31,7 @@
 }
 
 .topBar-left h1 {
+  font-family: "Lobster", sans-serif;
   font-size: var(--font-size-large);
   padding: 0.2rem 0 0 0;
 }

@@ -18,14 +18,14 @@ const ProfileInfo = () => {
       setUserData([auth.user]);
     } else {
       dispatch(getUserProfile({ users: profile.users, userId, auth }));
-      const newData = profile.users.filter((user) => user._id === userId);
+      const newData = profile.users.filter((user) => user?._id === userId);
       setUserData(newData);
     }
   }, [userId, auth, dispatch, profile.users]);
   return (
     <div className="ProfileInfo">
       {userData.map((user) => (
-        <div key={user._id}>
+        <div key={user?._id}>
           <div className="profile-info-top">
             <div className="profile-info-top-left">
               <img

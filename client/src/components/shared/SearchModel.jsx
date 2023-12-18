@@ -23,7 +23,7 @@ const SearchModel = ({ user, handleClose }) => {
           loading="lazy"
         />
         <div className="searchmodel-userinfo">
-          <h4 className="searchmodel-username">{user?.username}</h4>
+          <span className="searchmodel-username">{user?.username}</span>
           <span className="searchmodel-name">
             {user?.name}
             <span className="searchmodel-following-dot">•</span>

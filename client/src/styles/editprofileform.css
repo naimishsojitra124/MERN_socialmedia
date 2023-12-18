@@ -18,8 +18,8 @@
   flex-direction: column;
   align-items: flex-end;
   padding: 0 1.5rem 0 0;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
 }
 
 .edit-profile-img {
@@ -30,18 +30,17 @@
 }
 
 .edit-header-username {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .edit-header-img-input label {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #6055ff;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-500);
   cursor: pointer;
 }
 
 .edit-header-img-input label:hover {
-  color: var(--secondary);
+  color: var(--primary-600);
 }
 
 .edit-form-body {
@@ -64,7 +63,6 @@
 .edit-body-right,
 .edit-body-phone-right {
   width: 65%;
-  color: #838daa;
   display: flex;
   flex-direction: column;
 }
@@ -73,15 +71,22 @@
 textarea,
 select {
   width: 80%;
-  height: 2.1rem;
+  height: 2rem;
   border: 1px solid #dbdfe4;
   border-radius: 0.3rem;
   margin: 0 0 0.3rem 0;
   padding: 0 0.6rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #444;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
   outline: none;
+}
+
+.edit-body-phone-container {
+  width: 100% !important;
+}
+.edit-body-phone-input {
+  width: 80% !important;
+  height: 2rem !important;
 }
 
 textarea {
@@ -95,9 +100,10 @@ textarea {
 .personal-info span {
   width: 80%;
   display: flex;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #838daa;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--neutral2-700);
+  opacity: 0.8;
   margin: 0.2rem 0 0 0;
 }
 
@@ -105,12 +111,6 @@ textarea {
   width: 65%;
   margin: 1rem 0 0 35%;
   height: 100%;
-}
-
-.edit-body-gender-option {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #444;
 }
 
 .edit-form-footer {
@@ -127,10 +127,10 @@ textarea {
   width: 10rem;
   height: 2.5rem;
   border: none;
-  background-color: #fff;
-  color: var(--secondary);
-  font-size: 0.9rem;
-  font-weight: 700;
+  background: #fff;
+  color: var(--primary-500);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,26 +140,26 @@ textarea {
 .edit-footer-save {
   margin: 0;
   border-radius: 0.3rem;
-  background-color: var(--primary-500);
+  background: var(--primary-500);
   color: #fff;
 }
 
 .edit-footer-cancel:hover {
-  color: #3b2dff;
+  color: var(--primary-600);
 }
 
 .edit-footer-save:hover {
-  background-color: #3b2dff;
+  background: var(--primary-600);
 }
 
 .edit-footer-save:disabled {
-  background-color: #e2e7fc;
-  color: #706bb9;
+  background: var(--primary-25);
+  color: #FFF;
   cursor: not-allowed;
 }
 
 @media screen and (max-width: 640px) {
-  .EditProfileForm {
+   .EditProfileForm {
     width: 100%;
     height: 100%;
     padding: 0.5rem 0 0 0;
@@ -171,20 +171,20 @@ textarea {
 
   .edit-header-username {
     width: 100%;
-    font-size: 1rem;
+    font-size: var(--font-size-medium);
   }
 
   .edit-header-img-label {
     width: 100%;
-    font-size: 0.8rem;
+    font-size: var(--font-size-small);
   }
 
   .edit-header-left,
   .edit-body-left {
-    width: 25%;
+    width: 22%;
     height: auto;
     align-items: start;
-    font-size: 0.9rem;
+    font-size: var(--font-size-small);
     padding: 0 0 0 0.3rem;
   }
 
@@ -194,32 +194,30 @@ textarea {
 
   .edit-body-item {
     width: 100%;
-    margin: 0.5rem 0 0 0.1rem;
+    margin: 0.5rem 0 0 0;
+    padding: 0 0 0 0.3rem;
     display: flex;
     flex-direction: column;
   }
 
-  .edit-body-right {
+  .edit-body-right,
+  .edit-body-phone-right {
     width: 100%;
   }
 
   .edit-body-right input,
-  textarea {
+  textarea,
+  select {
     width: 95%;
-    margin: 0.3rem 0;
-    height: 2rem;
+    margin: 0.5rem 0;
     padding: 0 0.4rem 0 0.4rem;
-    font-size: 0.8rem;
   }
 
   .edit-body-right span,
   .personal-info span {
     width: 95%;
-    font-size: 0.65rem;
-  }
-
-  .edit-body-form-input {
-    width: 100%;
+    font-size: 0.7rem;
+    opacity: 0.7;
   }
 
   .personal-info {
@@ -228,15 +226,18 @@ textarea {
     margin: 1rem 0 0 0;
   }
 
-  .edit-footer-cancel {
-    width: 7.5rem;
+  .edit-body-phone-container {
+    width: 100% !important;
+  }
+  .edit-body-phone-input {
+    width: 95% !important;
     height: 2rem;
-    font-size: 0.8rem;
   }
 
+  .edit-footer-cancel,
   .edit-footer-save {
     width: 7.5rem;
     height: 2rem;
-    font-size: 0.8rem;
+    font-size: var(--font-size-small);
   }
 }

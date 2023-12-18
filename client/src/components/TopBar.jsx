@@ -36,7 +36,7 @@ const TopBar = () => {
             width={23}
             height={23}
           />
-          {pathname === `/profile/${userId}` ? <></> : <h1>ShareMe</h1>}
+          {pathname === `/profile/${userId}` ? <></> : <h1>SnapThread</h1>}
         </Link>
         {userId && (
           <div className="topBar-center">

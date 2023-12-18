@@ -10,7 +10,6 @@
   width: 80%;
   height: 90%;
   position: relative;
-  /* background: aquamarine; */
   border: 1px solid #dbdbdb;
 }
 
@@ -37,22 +36,23 @@
 
 .tab-container label:hover {
   cursor: pointer;
-  background: #f5f5f5;
+  background: var(--neutral1-50);
   transition: all 0.1s ease-in-out;
 }
 
 .tab-container label span {
-  font-weight: 600;
-  color: #838daa;
+  font-weight: var(--font-weight-semibold);
+  color: var(--neutral2-700);
+  opacity: 0.9;
 }
 
-.tab-container label span:hover {
-  color: #4c40ee;
+.tab-container label:hover span {
+  color: var(--primary-700);
 }
 
 #edit-profile:checked ~ .tab-container .edit-profile span,
 #change-password:checked ~ .tab-container .change-password span {
-  color: #4c40ee;
+  color: var(--primary-700);
 }
 
 #edit-profile:checked ~ .tab-content .change-password-form,
@@ -61,19 +61,18 @@
 }
 
 .tab-content {
-    float: right;
-    width: 80%;
-    height: 100%;
-    /* background: aquamarine; */
-    padding: 0.8rem 0.2rem;
-    overflow: auto;
+  float: right;
+  width: 80%;
+  height: 100%;
+  padding: 0.8rem 0.2rem;
+  overflow: auto;
 }
 
 .indicator {
   position: absolute;
   width: 0.1875rem;
   height: 3.75rem;
-  background: #877eff;
+  background: var(--primary-300);
   left: 0;
   top: 0;
   transition: top 0.3s;
@@ -88,10 +87,11 @@
   top: 3.75rem;
 }
 
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   .UpdateProfile {
     width: 100vw;
+    height: calc(100vh - 3.5rem);
+    margin: auto 0 0 0;
   }
   .update-profile-container {
     width: 100vw;
@@ -110,7 +110,7 @@
   .tab-container label {
     width: 50%;
     height: 3.125rem;
-    font-size: 1rem;
+    font-size: var(--font-size-medium);
     padding: 0;
     border-right: 1px solid #dbdbdb;
     justify-content: center;

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Loader } from "../../index";
 
 const ChangePasswordForm = () => {
+  // State
   const initialState = {
     oldPassword: "",
     newPassword: "",
@@ -12,24 +15,35 @@ const ChangePasswordForm = () => {
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
 
+  const auth = useSelector((state) => state.auth);
+  const profile = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+
   // Handle input change event
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   return (
     <form className="ChangePasswordForm">
       <div className="change-pass-form-header">
         <div className="change-pass-header-left">
           <img
-            src="/assets/profileimgs/profile11.jpg"
+            src={
+              auth.user?.profilePicture
+                ? auth.user?.profilePicture
+                : "/assets/icons/profile-placeholder.svg"
+            }
             alt="profile-img"
             className="change-pass-profile-img"
             loading="lazy"
           />
         </div>
         <div className="change-pass-header-right">
-          <span className="change-pass-header-username">asdfgh</span>
+          <span className="change-pass-header-username">
+            @{auth?.user?.username}
+          </span>
         </div>
       </div>
       <div className="change-pass-form-body">
@@ -43,7 +57,7 @@ const ChangePasswordForm = () => {
                 className="change-pass-body-input"
                 placeholder="Old Password"
                 style={{
-                  border: "2px solid red",
+                  border: "2px solid #ff0e41",
                 }}
                 value={oldPassword}
                 onChange={handleChangeInput}
@@ -72,7 +86,7 @@ const ChangePasswordForm = () => {
                 className="change-pass-body-input"
                 placeholder="New Password"
                 style={{
-                  border: "2px solid red",
+                  border: "2px solid #ff0e41",
                 }}
                 value={newPassword}
                 onChange={handleChangeInput}
@@ -101,7 +115,7 @@ const ChangePasswordForm = () => {
                 className="change-pass-body-input"
                 placeholder="Confirm Password"
                 style={{
-                  border: "2px solid red",
+                  border: "2px solid #ff0e41",
                 }}
                 value={confirmPassword}
                 onChange={handleChangeInput}
@@ -124,7 +138,25 @@ const ChangePasswordForm = () => {
 
       <div className="change-pass-form-footer">
         <button className="change-pass-forgot-btn">Forgot Password?</button>
-        <button className="change-pass-btn">Change Password</button>
+        <button
+          className="change-pass-btn"
+          disabled={
+            !oldPassword && !newPassword && !confirmPassword
+              ? true
+              : profile.loading
+              ? true
+              : false
+          }
+        >
+          {profile.loading ? (
+            <>
+              <Loader size="small" stroke="white" />
+              Saving...
+            </>
+          ) : (
+            <>Change Password</>
+          )}
+        </button>
       </div>
     </form>
   );

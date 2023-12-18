@@ -3,9 +3,7 @@ import { PROFILE_TYPES } from "../actions/profileAction";
 const initialState = {
     loading: false,
     users: [],
-    posts: [],
-    result: 0,
-    page: 2
+    result: 0
 };
 
 const profileReducer = (state = initialState, action) => {

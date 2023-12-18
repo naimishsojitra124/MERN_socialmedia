@@ -1,8 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { EditProfileForm, ChangePasswordForm } from "../../components/index";
 
 const UpdateProfile = () => {
   return (
+    <>
+    <Helmet>
+        <title>Edit Profile • SnapThread</title>
+      </Helmet>
     <div className="UpdateProfile">
       <div className="update-profile-container">
         <input type="radio" name="indicator" id="edit-profile" defaultChecked />
@@ -26,6 +31,7 @@ const UpdateProfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

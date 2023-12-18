@@ -1,11 +1,11 @@
 .searchodel-container {
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem
+  padding: 0.5rem;
 }
 
 .searchresult-link {
-    text-decoration: none;
-    display: flex;
-    gap: 0.7rem;
+  text-decoration: none;
+  display: flex;
+  gap: 0.7rem;
 }
 
 .searchmodel-profilePic {
@@ -18,23 +18,29 @@
 .searchmodel-userinfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-.searchmodel-userinfo h4:hover {
-    /* text-decoration: underline; */
-    font-weight: 800;
+.searchmodel-username {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-semibold);
+}
+
+.searchmodel-username:hover {
+  font-weight: var(--font-weight-bold);
 }
 
 .searchmodel-name {
-  color: #444;
+  color: var(--neutral2-600);
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: var(--font-weight-medium);
 }
 
 .searchmodel-following-dot,
 .searchmodel-following-status {
   margin: 0 0 0 0.5rem;
-  opacity: 0.7;
+  color: var(--neutral2-50);
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 640px) {
