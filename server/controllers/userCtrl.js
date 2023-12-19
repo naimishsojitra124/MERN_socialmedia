@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const bcrypt = require("bcrypt");
 
 const userCtrl = {
   // @route   GET api/user/searchUser?username=
@@ -42,8 +43,10 @@ const userCtrl = {
         dob,
       } = req.body;
 
+      //Get current user
       const currentUser = await User.findById(req.user.id);
 
+      //Validation
       profilePicture === ""
         ? (profilePicture = currentUser.profilePicture)
         : profilePicture;
@@ -56,6 +59,7 @@ const userCtrl = {
       mobile === "" ? (mobile = currentUser.mobile) : mobile;
       dob === "" ? (dob = currentUser.dob) : dob;
 
+      //Update user
       await currentUser.updateOne({
         profilePicture,
         name,
@@ -68,6 +72,7 @@ const userCtrl = {
         dob,
       });
 
+      //Get updated user
       res.json({
         msg: "Profile saved successfully!",
         user: {
@@ -82,6 +87,45 @@ const userCtrl = {
           dob,
         },
       });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  // @route   PATCH api/user/updatePassword
+  updatePassword: async (req, res) => {
+    try {
+      const { oldPassword, newPassword, confirmPassword } = req.body;
+
+      //Validation
+      if (!oldPassword || !newPassword || !confirmPassword)
+        return res.status(400).json({ msg: "Please fill in all fields." });
+
+      if (newPassword.length < 6)
+        return res
+          .status(400)
+          .json({ msg: "Password must be at least 6 characters." });
+
+      if (newPassword !== confirmPassword)
+        return res.status(400).json({ msg: "Passwords do not match." });
+
+      //Get user data
+      const user = await User.findById(req.user?._id);
+      if (!user) return res.status(400).json({ msg: "User does not exist." });
+
+      //Check if old password is correct
+      const isMatch = await bcrypt.compare(oldPassword, user.password);
+      if (!isMatch)
+        return res.status(400).json({ msg: "Old password is incorrect." });
+
+      //Generate new password
+      const salt = await bcrypt.genSalt(12);
+      const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+      //Update password
+      await user.updateOne({ password: hashedPassword });
+
+      res.json({ msg: "Password updated successfully!" });
+      
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

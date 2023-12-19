@@ -37,14 +37,14 @@ const uploadCtrl = {
       };
 
       //Upload image to S3 Bucket
-      await s3.upload(params, (error, data) => {
-        if (error) {
-          return res.status(400).json({ msg: error.message });
+      await s3.upload(params, (err, data) => {
+        if (err) {
+          return res.status(400).json({ msg: err.message });
         }
         return res.status(200).json({ imgUrl: data.Location });
       });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
     }
   },
   // @route   DELETE api/upload/deleteprofilePic/:filename/:userId
@@ -56,9 +56,9 @@ const uploadCtrl = {
       Key: `profilePicture/${userId}/${filename}`
     }
 
-    await s3.deleteObject(params, (error, data) => {
-      if (error) {
-        return res.status(400).json({ msg: error.message });
+    await s3.deleteObject(params, (err, data) => {
+      if (err) {
+        return res.status(400).json({ msg: err.message });
       }
       return res.status(200).json({ msg: "Image deleted successfully" });
     });

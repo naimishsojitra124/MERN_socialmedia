@@ -26,10 +26,10 @@ const Explore = () => {
       );
       setUsers(res.data.users);
       setLoading(false);
-    } catch (error) {
+    } catch (err) {
       dispatch({
         type: TYPES.ALERT,
-        payload: { error: error.response.data.msg },
+        payload: { error: err.response.data.msg },
       });
     }
   };

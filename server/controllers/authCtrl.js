@@ -2,6 +2,9 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET;
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
+
 const authCtrl = {
   // @route   POST api/auth/register
   register: async (req, res) => {
@@ -60,8 +63,8 @@ const authCtrl = {
           password: "",
         },
       });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
     }
   },
   // @route   POST api/auth/login
@@ -99,8 +102,8 @@ const authCtrl = {
           password: "",
         },
       });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
     }
   },
   // @route   POST api/auth/logout
@@ -109,8 +112,8 @@ const authCtrl = {
       // Clear cookie
       res.clearCookie("refreshToken", { path: "/api/auth/refresh_token" });
       return res.json({ msg: "Logged out" });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
     }
   },
   // @route   POST api/auth/refresh_token
@@ -123,7 +126,7 @@ const authCtrl = {
       // Verify refresh token
       jwt.verify(
         rf_token,
-        process.env.JWT_REFRESH_SECRET,
+        JWT_REFRESH_SECRET,
         async (err, result) => {
           if (err) return res.status(400).json({ msg: "Please login now" });
 
@@ -143,20 +146,20 @@ const authCtrl = {
           });
         }
       );
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
     }
   },
 };
 
 // Create jwt to authenticate user
 const createAccessToken = (payload) => {
-  return jwt.sign(payload, process.env.JWT_ACCESS_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, JWT_ACCESS_SECRET, { expiresIn: "7d" });
 };
 
 // Create jwt to authenticate user
 const createRefreshToken = (payload) => {
-  return jwt.sign(payload, process.env.JWT_REFRESH_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, JWT_REFRESH_SECRET, { expiresIn: "7d" });
 };
 
 module.exports = authCtrl;

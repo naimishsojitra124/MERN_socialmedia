@@ -1,5 +1,5 @@
 import { postDataAPI } from "../../utils/fetchData";
-import validation from "../../utils/validation,";
+import {validation} from "../../utils/validation";
 
 export const TYPES = {
   AUTH: "AUTH",
@@ -91,11 +91,11 @@ export const refreshToken = () => async (dispatch) => {
       });
 
       dispatch({ type: TYPES.ALERT, payload: {} });
-    } catch (error) {
+    } catch (err) {
       dispatch({
         type: TYPES.ALERT,
         payload: {
-          error: error.response.data.msg,
+          error: err.response.data.msg,
         },
       });
     }

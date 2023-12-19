@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../index";
+import { changePassword } from "../../../redux/actions/profileAction";
 
 const ChangePasswordForm = () => {
   // State
@@ -17,6 +18,7 @@ const ChangePasswordForm = () => {
 
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile);
+  const alert = useSelector((state) => state.alert);
   const dispatch = useDispatch();
 
   // Handle input change event
@@ -25,8 +27,13 @@ const ChangePasswordForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleChangePassword = (e) => {
+    e.preventDefault();
+    dispatch(changePassword({formData, auth}));
+  };
+
   return (
-    <form className="ChangePasswordForm">
+    <form className="ChangePasswordForm" onSubmit={handleChangePassword}>
       <div className="change-pass-form-header">
         <div className="change-pass-header-left">
           <img
@@ -56,9 +63,9 @@ const ChangePasswordForm = () => {
                 name="oldPassword"
                 className="change-pass-body-input"
                 placeholder="Old Password"
-                style={{
-                  border: "2px solid #ff0e41",
-                }}
+                // style={{
+                //   border: "2px solid #ff0e41",
+                // }}
                 value={oldPassword}
                 onChange={handleChangeInput}
               />
@@ -73,7 +80,7 @@ const ChangePasswordForm = () => {
                 onClick={() => setShowOldPass(!showOldPass)}
               />
             </div>
-            <small>Password must contain atleast 1 lower case letter. </small>
+            {/* <small>Password must contain atleast 1 lower case letter. </small> */}
           </div>
         </div>
         <div className="change-pass-body-item">
@@ -86,7 +93,7 @@ const ChangePasswordForm = () => {
                 className="change-pass-body-input"
                 placeholder="New Password"
                 style={{
-                  border: "2px solid #ff0e41",
+                  border: alert.newPassword ? "2px solid #ff0e41" : "",
                 }}
                 value={newPassword}
                 onChange={handleChangeInput}
@@ -102,7 +109,7 @@ const ChangePasswordForm = () => {
                 onClick={() => setShowNewPass(!showNewPass)}
               />
             </div>
-            <small>Password must contain atleast 1 lower case letter. </small>
+            <small>{alert.newPassword ? alert.newPassword : ""}</small>
           </div>
         </div>
         <div className="change-pass-body-item">
@@ -115,7 +122,7 @@ const ChangePasswordForm = () => {
                 className="change-pass-body-input"
                 placeholder="Confirm Password"
                 style={{
-                  border: "2px solid #ff0e41",
+                  border: alert.confirmPassword ? "2px solid #ff0e41" : "",
                 }}
                 value={confirmPassword}
                 onChange={handleChangeInput}
@@ -131,7 +138,7 @@ const ChangePasswordForm = () => {
                 onClick={() => setShowConfirmPass(!showConfirmPass)}
               />
             </div>
-            <small>Password must contain atleast 1 lower case letter. </small>
+            <small>{alert.confirmPassword ? alert.confirmPassword : ""}</small>
           </div>
         </div>
       </div>
@@ -139,6 +146,7 @@ const ChangePasswordForm = () => {
       <div className="change-pass-form-footer">
         <button className="change-pass-forgot-btn">Forgot Password?</button>
         <button
+        type="submit"
           className="change-pass-btn"
           disabled={
             !oldPassword && !newPassword && !confirmPassword

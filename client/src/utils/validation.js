@@ -61,4 +61,56 @@ const validateEmail = (email) => {
   return re.test(email);
 };
 
-export default validation;
+const changePasswordValidation = ({ oldPassword, newPassword, confirmPassword }) => {
+  const err = {};
+
+  if (!oldPassword) {
+    err.oldPassword = "Please enter old password";
+  } 
+  // else if (oldPassword.length < 6) {
+  //   err.oldPassword = "Password must be at least 6 characters";
+  // } else if (oldPassword.length > 13) {
+  //   err.oldPassword = "Password must be less than 13 characters";
+  // } else if (oldPassword.search(/\s/) > -1) {
+  //   err.oldPassword = "Password must not contain spaces";
+  // } else if (oldPassword.search(/[0-9]/) < 0) {
+  //   err.oldPassword = "Password must contain at least one number";
+  // } else if (oldPassword.search(/[a-z]/) < 0) {
+  //   err.oldPassword = "Password must contain at least one lowercase letter";
+  // } else if (oldPassword.search(/[A-Z]/) < 0) {
+  //   err.oldPassword = "Password must contain at least one uppercase letter";
+  // } else if (oldPassword.search(/[!@#$%^&*]/) < 0) {
+  //   err.oldPassword = "Password must contain at least one special character";
+  // }
+
+  if (!newPassword) {
+    err.newPassword = "Please enter new password";
+  } else if (newPassword.length < 6) {
+    err.newPassword = "Password must be at least 6 characters";
+  } else if (newPassword.length > 13) {
+    err.newPassword = "Password must be less than 13 characters";
+  } else if (newPassword.search(/\s/) > -1) {
+    err.newPassword = "Password must not contain spaces";
+  } else if (newPassword.search(/[0-9]/) < 0) {
+    err.newPassword = "Password must contain at least one number";
+  } else if (newPassword.search(/[a-z]/) < 0) {
+    err.newPassword = "Password must contain at least one lowercase letter";
+  } else if (newPassword.search(/[A-Z]/) < 0) {
+    err.newPassword = "Password must contain at least one uppercase letter";
+  } else if (newPassword.search(/[!@#$%^&*]/) < 0) {
+    err.newPassword = "Password must contain at least one special character";
+  }
+
+  if(!confirmPassword) {
+    err.confirmPassword = "Please enter confirm password";
+  } else if (confirmPassword !== newPassword) {
+    err.confirmPassword = "Passwords do not match";
+  }
+
+  return {
+    errMsg: err,
+    errLength: Object.keys(err).length,
+  };
+}
+
+export {validation,changePasswordValidation};

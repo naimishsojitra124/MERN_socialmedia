@@ -8,4 +8,6 @@ router.get("/:userId", auth, userCtrl.getUser);
 
 router.patch("/updateUser", auth, userCtrl.updateUser);
 
+router.patch("/updatePassword", auth, userCtrl.updatePassword);
+
 module.exports = router;

@@ -7,9 +7,6 @@ const BottomBar = () => {
   // State
   const { pathname } = useLocation();
   const auth = useSelector((state) => state.auth);
-  console.log(pathname);
-  console.log(auth.user?._id);
-  console.log(pathname === `/profile/${auth.user?._id}` ? "true" : "false");
   return (
     <>
       {pathname === "/account/edit" ? (
