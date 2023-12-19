@@ -30,8 +30,8 @@
 }
 
 .unfollow-btn {
-    background: #fff;
-    border: 1px solid var(--primary-500);
+  background: #fff;
+  border: 1px solid var(--primary-500);
 }
 
 .editprofile-btn span,
@@ -45,7 +45,7 @@
 }
 
 .unfollow-btn span {
-    color: var(--primary-600);
+  color: var(--primary-600);
 }
 
 @media screen and (max-width: 640px) {
@@ -54,10 +54,14 @@
     gap: 0.5rem;
     justify-content: center;
   }
-  
+
   .editprofile-btn {
     width: 100%;
-}
+  }
+
+  .follow-btn {
+    width: 100%;
+  }
 
   .unfollow-btn,
   .message-btn {

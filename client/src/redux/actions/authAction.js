@@ -1,5 +1,5 @@
 import { postDataAPI } from "../../utils/fetchData";
-import {validation} from "../../utils/validation";
+import { validation } from "../../utils/validation";
 
 export const TYPES = {
   AUTH: "AUTH",
@@ -16,9 +16,12 @@ export const register = (data) => async (dispatch) => {
     return dispatch({ type: TYPES.ALERT, payload: checkData.errMsg });
   }
   try {
+    // Dispatch loading
     dispatch({ type: TYPES.ALERT, payload: { loading: true } });
+    // Post data to server
     const res = await postDataAPI("auth/register", data);
 
+    // Dispatch auth
     dispatch({
       type: TYPES.AUTH,
       payload: {
@@ -40,11 +43,14 @@ export const register = (data) => async (dispatch) => {
 export const login = (data) => async (dispatch) => {
   try {
     dispatch({ type: TYPES.ALERT, payload: { loading: true } });
+
+    // Post data to server
     const res = await postDataAPI("auth/login", data);
 
     // Save token to localStorage
     localStorage.setItem("firstLogin", true);
 
+    // Dispatch auth
     dispatch({
       type: TYPES.AUTH,
       payload: {
@@ -62,7 +68,10 @@ export const login = (data) => async (dispatch) => {
 // Logout action
 export const logout = () => async (dispatch) => {
   try {
+    // Remove firstLogin from localStorage
     localStorage.removeItem("firstLogin");
+
+    // Remove token from localStorage
     await postDataAPI("auth/logout");
 
     window.location.href = "/login";
@@ -90,7 +99,7 @@ export const refreshToken = () => async (dispatch) => {
         },
       });
 
-      dispatch({ type: TYPES.ALERT, payload: {} });
+      dispatch({ type: TYPES.ALERT, payload: { loading: false } });
     } catch (err) {
       dispatch({
         type: TYPES.ALERT,
@@ -100,4 +109,16 @@ export const refreshToken = () => async (dispatch) => {
       });
     }
   }
+};
+
+// Edit user action
+export const EditData = (data, id, post) => {
+  const newData = data?.map((item) => (item?._id === id ? post : item));
+  return newData;
+};
+
+// Delete user action
+export const DeleteData = (data, id) => {
+  const newData = data?.filter((item) => item?._id !== id);
+  return newData;
 };

@@ -1,10 +1,12 @@
 import { getDataAPI, patchDataAPI } from "../../utils/fetchData";
-import { TYPES } from "./authAction";
+import { DeleteData, TYPES } from "./authAction";
 import { changePasswordValidation } from "../../utils/validation";
 
 export const PROFILE_TYPES = {
   LOADING: "LOADING",
   GET_USER: "GET_USER",
+  FOLLOW: "FOLLOW",
+  UNFOLLOW: "UNFOLLOW",
 };
 
 // Get user profile
@@ -41,6 +43,7 @@ export const getUserProfile =
     }
   };
 
+// Update user profile
 export const updateUserProfile =
   ({ formData, auth }) =>
   async (dispatch) => {
@@ -69,6 +72,7 @@ export const updateUserProfile =
     }
   };
 
+// Change user password
 export const changePassword =
   ({ formData, auth }) =>
   async (dispatch) => {
@@ -98,5 +102,82 @@ export const changePassword =
       });
 
       dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
+    }
+  };
+
+// Follow
+export const follow =
+  ({ users, user, auth }) =>
+  async (dispatch) => {
+    // Update user in users array
+    let newUser = { ...user, followers: [...user?.followers, auth.user] };
+
+    // Update user
+    dispatch({
+      type: PROFILE_TYPES.FOLLOW,
+      payload: newUser,
+    });
+
+    // Update auth
+    dispatch({
+      type: TYPES.AUTH,
+      payload: {
+        ...auth,
+        user: {
+          ...auth.user,
+          following: [...auth.user?.following, newUser],
+        },
+      },
+    });
+
+    try {
+      // Update database
+      await patchDataAPI(`user/follow/${user?._id}`, null, auth.token);
+      
+    } catch (err) {
+      dispatch({
+        type: TYPES.ALERT,
+        payload: { error: err.response.data?.msg },
+      });
+    }
+  };
+
+// Unfollow
+export const unfollow =
+  ({ users, user, auth }) =>
+  async (dispatch) => {
+    // Update user in users array
+    let newUser = {
+      ...user,
+      followers: DeleteData(user?.followers, auth.user?._id),
+    };
+
+    // Update user
+    dispatch({
+      type: PROFILE_TYPES.UNFOLLOW,
+      payload: newUser,
+    });
+
+    // Update auth
+    dispatch({
+      type: TYPES.AUTH,
+      payload: {
+        ...auth,
+        user: {
+          ...auth.user,
+          following: DeleteData(auth.user?.following, newUser?._id),
+        },
+      },
+    });
+
+    try {
+      // Update database
+      await patchDataAPI(`user/unfollow/${user?._id}`, null, auth.token);
+      
+    } catch (err) {
+      dispatch({
+        type: TYPES.ALERT,
+        payload: { error: err.response.data?.msg },
+      });
     }
   };

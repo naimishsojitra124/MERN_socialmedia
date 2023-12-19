@@ -20,7 +20,9 @@ const userCtrl = {
   getUser: async (req, res) => {
     try {
       // Get user data
-      const user = await User.findById(req.params.userId).select("-password");
+      const user = await User.findById(req.params.userId)
+        .select("-password")
+        .populate("followers following", "-password");
       if (!user) return res.status(400).json({ msg: "User does not exist." });
 
       res.json({ user });
@@ -125,7 +127,83 @@ const userCtrl = {
       await user.updateOne({ password: hashedPassword });
 
       res.json({ msg: "Password updated successfully!" });
-      
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  // @route   PATCH api/user/follow/:id
+  follow: async (req, res) => {
+    try {
+      // Check if user is already in followers array
+      const user = await User.find({
+        _id: req?.params?.id,
+        followers: req?.user?._id,
+      });
+
+      // If user is already in followers array, return error
+      if (user.length > 0)
+        return res.status(400).json({ msg: "You already follow this user." });
+
+      // If user is not in followers array, add user to followers array
+      const newUser = await User.findOneAndUpdate(
+        { _id: req.params?.id },
+        {
+          $push: { followers: req?.user?._id },
+        },
+        { new: true }
+      ).populate("followers following", "-password");
+
+      // Add user to following array
+      await User.findOneAndUpdate(
+        { _id: req?.user?._id },
+        {
+          $push: { following: req?.params?.id },
+        },
+        { new: true }
+      ).populate("followers following", "-password");
+
+      // Return new user
+      res.status(200).json({ newUser });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  // @route   PATCH api/user/unfollow/:id
+  unfollow: async (req, res) => {
+    try {
+      // Get user data
+      const user = await User.findById({ _id: req.params?.id });
+
+      // If user is already in followers array
+      if (user?.followers?.includes(req?.user?._id)) {
+        try {
+          // Remove user from followers array
+          const newUser = await User.findOneAndUpdate(
+            { _id: req.params?.id },
+            {
+              $pull: { followers: req?.user?._id },
+            },
+            { new: true }
+          ).populate("followers following", "-password");
+
+          // Remove user from following array
+          await User.findOneAndUpdate(
+            { _id: req?.user?._id },
+            {
+              $pull: { following: req?.params?.id },
+            },
+            { new: true }
+          ).populate("followers following", "-password");
+
+          // Return new user
+          res.status(200).json({ newUser, msg: "Unfollowed successfully!" });
+        } catch (err) {
+          return res.status(500).json({ msg: err.message });
+        }
+      } else {
+        // If user is not in followers array, return error
+        res.status(400).json({ msg: "You do not follow this user." });
+      }
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

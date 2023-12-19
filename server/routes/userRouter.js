@@ -10,4 +10,8 @@ router.patch("/updateUser", auth, userCtrl.updateUser);
 
 router.patch("/updatePassword", auth, userCtrl.updatePassword);
 
+router.patch("/follow/:id", auth, userCtrl.follow);
+
+router.patch("/unfollow/:id", auth, userCtrl.unfollow);
+
 module.exports = router;

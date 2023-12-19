@@ -1,41 +1,50 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { follow, unfollow } from "../../../redux/actions/profileAction";
 
 const ProfileInfoButtons = ({ user }) => {
-  const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
-  const { userId } = useParams();
+  const profile = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+  const [isFollowed, setIsFollowed] = useState(false);
+
+  //Check if user is followed
+  useEffect(() => {
+    if (user?.followers?.find((follower) => follower?._id === auth.user?._id)) {
+      setIsFollowed(true);
+    }
+  }, [user, auth.user?._id]);
+
+  //Handle follow
+  const handleFollow = async () => {
+    setIsFollowed(true);
+    await dispatch(follow({ users: profile.users, user, auth }));
+  };
+
+  //Handle unfollow
+  const handleUnfollow = async () => {
+    await dispatch(unfollow({ users: profile.users, user, auth }));
+    setIsFollowed(false);
+  };
+
   return (
     <div className="ProfileInfoButtons">
-      {userId === auth.user?._id ? (
-        <button
-          className="btn editprofile-btn"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("/account/edit");
-          }}
-        >
-          <span>Edit Profile</span>
-          <img
-            src="/assets/icons/edit.svg"
-            alt="edit-profile"
-            style={{ margin: "0 0 0.2rem 0" }}
-          />
-        </button>
-      ) : (
+      {isFollowed ? (
         <>
-          {/* <button className="btn follow-btn">
-            <img src="/assets/icons/follow.svg" alt="follow" />
-            <span>Follow</span>
-          </button> */}
-          <button className="btn unfollow-btn">
+          <button className="btn unfollow-btn" onClick={handleUnfollow}>
             <span>Following</span>
             <img src="/assets/icons/unfollow.svg" alt="follow" />
           </button>
           <button className="btn message-btn">
             <img src="/assets/icons/message.svg" alt="message" />
             <span>Message</span>
+          </button>
+        </>
+      ) : (
+        <>
+          <button className="btn follow-btn" onClick={handleFollow}>
+            <img src="/assets/icons/follow.svg" alt="follow" />
+            <span>Follow</span>
           </button>
         </>
       )}

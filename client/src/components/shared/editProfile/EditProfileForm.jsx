@@ -50,11 +50,11 @@ const EditProfileForm = () => {
     if (img) {
       const form = new FormData();
       form.append("file", img);
+      dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
       
       try {
         // If user has no profile picture
         if (auth.user?.profilePicture === "") {
-          dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
           const res = await postDataAPI(
             `upload/uploadprofilePic/${auth.user?._id}`,
             form

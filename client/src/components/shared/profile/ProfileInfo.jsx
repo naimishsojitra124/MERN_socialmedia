@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../../../redux/actions/profileAction";
 import ProfileInfoButtons from "./ProfileInfoButtons";
@@ -10,6 +10,7 @@ const ProfileInfo = () => {
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [userData, setUserData] = useState([]);
 
   // Effect to get user profile
@@ -29,7 +30,11 @@ const ProfileInfo = () => {
           <div className="profile-info-top">
             <div className="profile-info-top-left">
               <img
-                src={user?.profilePicture ? user?.profilePicture : "/assets/icons/profile-placeholder.svg"}
+                src={
+                  user?.profilePicture
+                    ? user?.profilePicture
+                    : "/assets/icons/profile-placeholder.svg"
+                }
                 alt="profile-pic"
                 className="profile-pic"
                 loading="lazy"
@@ -44,7 +49,24 @@ const ProfileInfo = () => {
                   <div className="profile-info-username">@{user?.username}</div>
                 </div>
                 <div className="profile-info-buttons">
-                  <ProfileInfoButtons />
+                  {userId === auth.user?._id ? (
+                    <button
+                      className="btn editprofile-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate("/account/edit");
+                      }}
+                    >
+                      <span>Edit Profile</span>
+                      <img
+                        src="/assets/icons/edit.svg"
+                        alt="edit-profile"
+                        style={{ margin: "0 0 0.2rem 0" }}
+                      />
+                    </button>
+                  ) : (
+                    <ProfileInfoButtons user={user} />
+                  )}
                 </div>
               </div>
               <div className="profile-info-right-bottom">
@@ -54,12 +76,12 @@ const ProfileInfo = () => {
                 </div>
 
                 <div className="profile-info">
-                  <span>6450</span>
+                  <span>{user?.followers?.length}</span>
                   <span>Followers</span>
                 </div>
 
                 <div className="profile-info">
-                  <span>320</span>
+                  <span>{user?.following?.length}</span>
                   <span>Following</span>
                 </div>
               </div>
@@ -83,7 +105,24 @@ const ProfileInfo = () => {
               </div>
             )}
             <div className="profile-buttons-mobile">
-              <ProfileInfoButtons />
+              {userId === auth.user?._id ? (
+                <button
+                  className="btn editprofile-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/account/edit");
+                  }}
+                >
+                  <span>Edit Profile</span>
+                  <img
+                    src="/assets/icons/edit.svg"
+                    alt="edit-profile"
+                    style={{ margin: "0 0 0.2rem 0" }}
+                  />
+                </button>
+              ) : (
+                <ProfileInfoButtons user={user} />
+              )}
             </div>
           </div>
         </div>
