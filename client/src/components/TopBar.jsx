@@ -70,7 +70,7 @@ const TopBar = () => {
       </div>
 
       {onSetting && (
-        <div className="settings" onClick={() => setOnSetting(!onSetting)}>
+        <div className="settings" onClick={() => setOnSetting(false)}>
           <div className="settings-container">
             <button
               className="settings-btn setting"
@@ -102,7 +102,7 @@ const TopBar = () => {
             </button>
             <button
               className="settings-btn"
-              onClick={() => setOnSetting(!onSetting)}
+              onClick={() => setOnSetting(false)}
             >
               Cancel
             </button>

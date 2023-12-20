@@ -25,7 +25,7 @@ const Toast = ({ msg, bgColor }) => {
     <div>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         transition={Zoom}
         hideProgressBar={false}
         newestOnTop

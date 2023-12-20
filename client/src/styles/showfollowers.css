@@ -1,0 +1,122 @@
+.ShowFollowersContainer {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.followers-wrapper {
+    width: 35rem;
+    height: auto;
+    max-height: 35rem;
+    background: #fff;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.followers-top {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.followers-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.followers-bottom {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.followers-user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+
+.followers-user-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.followers-profile-pic {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.followers-username {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+}
+
+.followers-name {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    color: var(--neutral1-600);
+
+}
+
+@media screen and (max-width: 640px) {
+    .followers-wrapper {
+        width: 95%;
+        height: 100%;
+    }
+
+    .followers-top {
+        height: 50px;
+    }
+
+    .followers-close {
+        width: 50px;
+    }
+
+    .followers-user {
+        padding: 0 0.5rem;
+    }
+
+    .followers-user-left {
+        width: 60%;
+    }
+
+    .followers-username {
+        font-size: 0.95rem;
+    }
+
+    .followers-name {
+        font-size: var(--font-size-small);
+    }
+
+    .followers-user-right { 
+        width: 35%
+    }
+}

@@ -141,6 +141,8 @@
   --line-height-medium: 1.6;
   --line-height-large: 1.8;
 
+  --border-color: #bababa;
+
   /* @media (min-width: var(--tablet-breakpoint)) {
     --font-size-small: 1rem;
     --font-size-medium: 1.125rem;

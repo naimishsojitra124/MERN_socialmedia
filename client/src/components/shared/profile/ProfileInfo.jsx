@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../../../redux/actions/profileAction";
 import ProfileInfoButtons from "./ProfileInfoButtons";
+import ShowFollowers from "./ShowFollowers";
+import ShowFollowings from "./ShowFollowings";
 
 const ProfileInfo = () => {
   // State
   const { userId } = useParams();
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile);
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [userData, setUserData] = useState([]);
+  const [showFollowers, setShowFollowers] = useState(false);
+  const [showFollowings, setShowFollowings] = useState(false);
 
   // Effect to get user profile
   useEffect(() => {
@@ -23,6 +28,7 @@ const ProfileInfo = () => {
       setUserData(newData);
     }
   }, [userId, auth, dispatch, profile.users]);
+
   return (
     <div className="ProfileInfo">
       {userData.map((user) => (
@@ -49,6 +55,7 @@ const ProfileInfo = () => {
                   <div className="profile-info-username">@{user?.username}</div>
                 </div>
                 <div className="profile-info-buttons">
+                  {/* Show Edit Profile button if user is logged in user */}
                   {userId === auth.user?._id ? (
                     <button
                       className="btn editprofile-btn"
@@ -76,12 +83,44 @@ const ProfileInfo = () => {
                 </div>
 
                 <div className="profile-info">
-                  <span>{user?.followers?.length}</span>
+                  <span
+                    onClick={() => {
+                      if (
+                        user?.followers.some(
+                          (user) => user?._id === auth.user?._id
+                        )
+                      ) {
+                        // If user includes logged in user in followers array then show followers
+                        setShowFollowers(!showFollowers);
+                      } else if (pathname === `/profile/${auth?.user?._id}`) {
+                        // If user is logged in user then show followers
+                        setShowFollowers(!showFollowers);
+                      }
+                    }}
+                  >
+                    {user?.followers?.length}
+                  </span>
                   <span>Followers</span>
                 </div>
 
                 <div className="profile-info">
-                  <span>{user?.following?.length}</span>
+                  <span
+                    onClick={() => {
+                      if (
+                        user?.following.some(
+                          (user) => user?._id === auth.user?._id
+                        )
+                      ) {
+                        // If user includes logged in user in followers array then show followings
+                        setShowFollowings(!showFollowings);
+                      } else if (pathname === `/profile/${auth?.user?._id}`) {
+                        // If user is logged in user then show followings
+                        setShowFollowings(!showFollowings);
+                      }
+                    }}
+                  >
+                    {user?.following?.length}
+                  </span>
                   <span>Following</span>
                 </div>
               </div>
@@ -89,7 +128,7 @@ const ProfileInfo = () => {
           </div>
           <div className="profile-info-bottom">
             <div className="profile-info-bio">
-              {user?.bio ? <span>𝓛𝓲𝓿𝓮📿𝓛𝓪𝓾𝓰𝓱😊𝓛𝓸𝓥𝓮🤍</span> : "No Bio"}
+              {user?.bio ? <span>{user?.bio}</span> : "No Bio"}
             </div>
             {user?.website && (
               <div className="profile-info-website">
@@ -125,6 +164,20 @@ const ProfileInfo = () => {
               )}
             </div>
           </div>
+          
+          {/* Show followers and followings */}
+          {showFollowers && user?.followers.length > 0 && (
+            <ShowFollowers
+              user={user?.followers}
+              setShowFollowers={setShowFollowers}
+            />
+          )}
+          {showFollowings && user?.following.length > 0 && (
+            <ShowFollowings
+              user={user?.following}
+              setShowFollowings={setShowFollowings}
+            />
+          )}
         </div>
       ))}
     </div>
