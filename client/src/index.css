@@ -82,3 +82,6 @@ body {
 @import url("./styles/updateprofile.css");
 @import url("./styles//editprofileform.css");
 @import url("./styles/changepasswordform.css");
+
+/* Create Post Styles */
+@import url("./styles/createpost.css");

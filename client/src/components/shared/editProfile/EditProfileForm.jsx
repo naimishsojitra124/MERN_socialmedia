@@ -51,7 +51,7 @@ const EditProfileForm = () => {
       const form = new FormData();
       form.append("file", img);
       dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
-      
+
       try {
         // If user has no profile picture
         if (auth.user?.profilePicture === "") {
@@ -284,7 +284,11 @@ const EditProfileForm = () => {
       </div>
 
       <div className="edit-form-footer">
-        <button type="reset" className="edit-footer-cancel">
+        <button
+          type="reset"
+          className="edit-footer-cancel"
+          onClick={() => setFormData(initialState)}
+        >
           Cancel
         </button>
         <button

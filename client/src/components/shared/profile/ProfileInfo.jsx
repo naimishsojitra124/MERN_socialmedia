@@ -107,7 +107,7 @@ const ProfileInfo = () => {
                   <span
                     onClick={() => {
                       if (
-                        user?.following.some(
+                        user?.followers.some(
                           (user) => user?._id === auth.user?._id
                         )
                       ) {

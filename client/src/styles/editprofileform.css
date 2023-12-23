@@ -68,7 +68,7 @@
 }
 
 .edit-body-right input,
-textarea,
+.edit-body-right textarea,
 select {
   width: 80%;
   height: 2rem;
@@ -89,7 +89,7 @@ select {
   height: 2rem !important;
 }
 
-textarea {
+.edit-body-right textarea {
   width: 80%;
   min-height: 4rem;
   padding: 0.2rem 0.6rem 0 0.6rem;

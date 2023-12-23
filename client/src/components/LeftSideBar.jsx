@@ -14,7 +14,7 @@ const LeftSideBar = () => {
       <div className="leftSideBar-top">
         <Link to="/" className="logo">
           <img
-            src="/assets/icons/snapStitch.svg"
+            src="/assets/icons/snapThread.svg"
             alt="logo"
           />
           <span>SnapThread</span>

@@ -142,14 +142,4 @@
   --line-height-large: 1.8;
 
   --border-color: #bababa;
-
-  /* @media (min-width: var(--tablet-breakpoint)) {
-    --font-size-small: 1rem;
-    --font-size-medium: 1.125rem;
-    --font-size-large: 1.25rem;
-
-    --line-height-small: 1.5;
-    --line-height-medium: 1.7;
-    --line-height-large: 1.9;
-  } */
 }

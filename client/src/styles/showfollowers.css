@@ -12,7 +12,7 @@
 }
 
 .followers-wrapper {
-    width: 35rem;
+    width: 30rem;
     height: auto;
     max-height: 35rem;
     background: #fff;
@@ -89,7 +89,6 @@
 @media screen and (max-width: 640px) {
     .followers-wrapper {
         width: 95%;
-        height: 100%;
     }
 
     .followers-top {
