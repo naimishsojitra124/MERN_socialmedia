@@ -26,11 +26,13 @@ mongoose.connect(MONGO_URI, {
 const authRoute = require("./routes/authRouter");
 const uploadRoute = require("./routes/uploadRouter");
 const userRouter = require('./routes/userRouter');
+const postRouter = require('./routes/postRouter');
 
 // Use Routes
 app.use("/api/auth", authRoute);
 app.use("/api/upload", uploadRoute);
 app.use("/api/user", userRouter);
+app.use("/api/post", postRouter);
 
 
 

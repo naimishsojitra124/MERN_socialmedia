@@ -60,7 +60,6 @@ const EditProfileForm = () => {
             form
           );
           formData.profilePicture = res.data.imgUrl;
-          console.log(res.data.imgUrl);
         } else {
           // First upload new profile picture
           const res = await postDataAPI(

@@ -9,7 +9,7 @@ router.post("/uploadprofilePic/:userId", upload.single("file"), uploadCtrl.uploa
 
 router.delete("/deleteprofilePic/:filename/:userId", uploadCtrl.deleteprofilePic);
 
-router.post("/uploadPostImgs/:userId", upload.array("files"), uploadCtrl.uploadPostImgs);
+router.post("/uploadPostImgs/:userId", upload.single("files"), uploadCtrl.uploadPostImgs);
 
 router.delete("/deletePostImgs/:filename/:userId", uploadCtrl.deletePostImgs);
 

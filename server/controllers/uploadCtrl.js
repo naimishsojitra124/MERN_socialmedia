@@ -49,12 +49,12 @@ const uploadCtrl = {
   },
   // @route   DELETE api/upload/deleteprofilePic/:filename/:userId
   deleteprofilePic: async (req, res) => {
-    const {filename, userId} = req.params;
+    const { filename, userId } = req.params;
 
     const params = {
       Bucket: AWS_BUCKET_NAME,
-      Key: `profilePicture/${userId}/${filename}`
-    }
+      Key: `profilePicture/${userId}/${filename}`,
+    };
 
     await s3.deleteObject(params, (err, data) => {
       if (err) {
@@ -64,7 +64,36 @@ const uploadCtrl = {
     });
   },
   // @route   POST api/upload/uploadPostImgs/:userId
-  uploadPostImgs: async (req, res) => {},
+  uploadPostImgs: async (req, res) => {
+    try {
+      const { file } = req;
+      const { userId } = req.params;
+
+      //Validate
+      if (!file) return res.status(400).json({ msg: "No file uploaded" });
+
+      //S3 Bucket params
+      const params = {
+        Bucket: AWS_BUCKET_NAME,
+        Key: `postImages/${userId}/${Date.now()}${file.originalname}`,
+        Body: file.buffer,
+        ContentType: file.mimetype,
+      };
+
+      //Upload image to S3 Bucket
+      await s3.upload(params, (err, data) => {
+        if (err) {
+          return res.status(400).json({ msg: err.message });
+        }
+        return res.status(200).json({ 
+          imgUrl: data.Location,
+          public_id: data.Key
+        });
+      });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   // @route   DELETE api/upload/deletePostImgs/:filename/:userId
   deletePostImgs: async (req, res) => {},
 };

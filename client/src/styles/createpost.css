@@ -151,6 +151,7 @@
   height: 2.5rem;
   border: none;
   border-radius: 0.3rem;
+  margin: 0.5rem 0 0 0;
   background: var(--primary-500);
   color: #fff;
   font-size: var(--font-size-medium);
@@ -165,12 +166,12 @@
   background: var(--primary-600);
 }
 
-.create-post-container footer {
+.form-btns {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
-  margin: 2rem 0 0 0;
+  margin: 1rem 0 0 0;
 }
 
 .createPost-form-btn {
@@ -206,4 +207,57 @@
   background: var(--primary-25);
   color: #fff;
   cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  .create-post-container {
+    height: calc(100vh - 7rem);
+    margin: auto;
+    padding: 1rem 1rem;
+  }
+  
+  .create-post-container header {
+    font-size: var(--font-size-medium);
+    margin: 1rem 0;
+  }
+
+  .create-post-container main form {
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: var(--font-size-medium);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    height: 2rem;
+    font-size: var(--font-size-small);
+  }
+
+  .form-group textarea {
+    height: 4rem;
+  }
+
+  .add-img-container {
+    height: 20rem;
+    max-height: 20rem;
+  }
+
+  .selected-imgs-container {
+    height: 15rem;
+    max-height: 15rem;
+  }
+
+  .selected-imgs-Wrapper {
+    max-height: 200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    place-items: center;
+    grid-gap: 0.5rem;
+  }
+
+  .selected-image-item img {
+    max-height: 8rem;
+  }
 }
