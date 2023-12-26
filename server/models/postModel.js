@@ -9,7 +9,7 @@ const PostSchema = new mongoose.Schema(
     },
     caption: {
       type: String,
-      maxlength: 150,
+      maxlength: 2200,
       default: "",
     },
     images: {
@@ -17,8 +17,8 @@ const PostSchema = new mongoose.Schema(
       default: [],
     },
     tags: {
-      type: String,
-      default: "",
+      type: Array,
+      default: [],
     },
     location: {
       type: String,

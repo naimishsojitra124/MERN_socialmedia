@@ -11,7 +11,7 @@ const Profile = () => {
 
     <div className="Profile">
       <ProfileInfo />
-      <Posts />
+      Profile Bottom
     </div>
     </>
   );

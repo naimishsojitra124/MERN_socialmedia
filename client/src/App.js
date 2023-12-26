@@ -15,17 +15,24 @@ import {
   Saved,
   UpdateProfile,
 } from "./_root/pages/index";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { refreshToken } from "./redux/actions/authAction";
 import PrivateRouter from "./PrivateRouter";
+import { getPosts } from "./redux/actions/postAction";
 
 function App() {
-  // const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshToken());
   }, [dispatch]);
+
+  useEffect(() => {
+    if(auth?.token) {
+      dispatch(getPosts(auth?.token));
+    }
+  }, [dispatch, auth?.token]);
   return (
     <>
       <Notify />

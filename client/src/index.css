@@ -40,7 +40,7 @@ body {
 
 .App {
   width: 100%;
-  background: #FFF;
+  background: #fff;
   min-height: 100vh;
   transition: all 0.5s ease;
 }
@@ -65,6 +65,12 @@ body {
 
 /* Home Styles */
 @import url("./styles/home.css");
+@import url("./styles/feed.css");
+@import url("./styles//homeusersuggestions.css");
+
+/* Post Styles */
+@import url("./styles/posts.css");
+@import url("./styles/carousel.css");
 
 /* Explore Styles */
 @import url("./styles/explore.css");

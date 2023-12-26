@@ -5,7 +5,6 @@
   width: 15%;
   height: 100vh;
   background: #fff;
-  border-right: 1px solid var(--border-color);
   padding: 1rem;
   overflow-y: auto;
 }
@@ -65,6 +64,17 @@
   font-weight: var(--font-weight-bold);
 }
 
+.profilePic {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.leftSideBar-pic-active {
+  border: 2px solid var(--neutral2-800);
+}
+
 .leftSideBar-icon {
   width: 1.5rem;
   height: 1.5rem;
@@ -73,7 +83,6 @@
 .leftSideBar-logout {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   background: transparent;
   border: none;
   outline: none;
@@ -85,15 +94,9 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.profilePic {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.leftSideBar-pic-active {
-  border: 2px solid var(--neutral2-800);
+.leftSideBar-logout img {
+  width: 1rem;
+  height: 1rem;
 }
 
 @media screen and (max-width: 769px) {

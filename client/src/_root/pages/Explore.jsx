@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataAPI } from "../../utils/fetchData";
 import { TYPES } from "../../redux/actions/authAction";
-import { SearchModel } from "../../components/index";
+import { Loader, SearchModel } from "../../components/index";
 
 const Explore = () => {
   // State
@@ -70,13 +70,7 @@ const Explore = () => {
             maxLength={20}
           />
           {loading ? (
-            <img
-              src="/assets/icons/loader.svg"
-              alt="loader"
-              className="explore-top-search-loader"
-              width={18}
-              height={18}
-            />
+            <Loader size="medium" stroke="black"/>
           ) : (
             <span
               className="search-close-icon"

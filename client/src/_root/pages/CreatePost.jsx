@@ -13,7 +13,6 @@ const CreatePost = () => {
   const initialState = useMemo(
     () => ({
       caption: "",
-      tags: [],
       location: "",
     }),
     []
@@ -21,12 +20,12 @@ const CreatePost = () => {
 
   const [postData, setPostData] = useState(initialState);
 
-  const { caption, tags, location } = postData;
+  const { caption, location } = postData;
   const [img, setImg] = useState([]);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  // Handle input changes for caption, tags, and location
+  // Handle input changes for caption and location
   const handleInputChange = ({ target: { name, value } }) => {
     setPostData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -77,17 +76,16 @@ const CreatePost = () => {
         payload: { error: "Caption is required." },
       });
     } else if (caption.split("\n")) {
-      if (caption.split("\n").length > 10) {
+      if (caption.split("\n").length > 20) {
         return dispatch({
           type: TYPES.ALERT,
-          payload: { error: "You can only have up to 10 lines in a caption." },
+          payload: { error: "You can only have up to 20 lines in a caption." },
         });
       }
     }
 
     const newPost = {
       caption,
-      tags,
       location,
       images: [],
     };
@@ -150,11 +148,11 @@ const CreatePost = () => {
                 className="createPost-form-textarea"
                 placeholder="Write a caption..."
                 name="caption"
-                maxLength={150}
+                maxLength={2200}
                 value={caption}
                 onChange={handleInputChange}
               />
-              <small>{caption.length}/150</small>
+              <small>{caption.length}/2200</small>
             </div>
             <div className="form-group">
               <label htmlFor="add-photos">Add Photos</label>
@@ -212,18 +210,6 @@ const CreatePost = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="add-tags">Add Tags</label>
-              <input
-                type="text"
-                name="tags"
-                id="tags"
-                placeholder="Add tags"
-                maxLength={100}
-                value={tags}
-                onChange={handleInputChange}
-              />
             </div>
             <div className="form-group">
               <label htmlFor="add-location">Add Location</label>

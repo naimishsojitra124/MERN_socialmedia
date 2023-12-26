@@ -1,0 +1,20 @@
+.HomeUserSuggestions {
+    width: 30%;
+    height: 100vh;
+    background: aquamarine;
+}
+
+@media screen and (max-width: 640px) {
+    .HomeUserSuggestions {
+        display: none;
+    }
+    
+}
+
+@media screen and (min-width: 640px) and (max-width: 769px) {
+    .HomeUserSuggestions {
+        height: calc(100vh - 7rem);
+        margin: auto;
+    }
+    
+}

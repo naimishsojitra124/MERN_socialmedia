@@ -11,6 +11,10 @@ import ChangePasswordForm from "./shared/editProfile/ChangePasswordForm";
 import ProfileInfo from "./shared/profile/ProfileInfo";
 import ProfileInfoButtons from "./shared/profile/ProfileInfoButtons";
 import Posts from "./shared/post/Posts";
+import ShowFollowers from "./shared/profile/ShowFollowers";
+import ShowFollowings from "./shared/profile/ShowFollowings";
+import Feed from "./shared/home/Feed";
+import HomeUserSuggestions from "./shared/home/HomeUserSuggestions";
 
 export {
   NotFound,
@@ -26,5 +30,8 @@ export {
   ProfileInfo,
   ProfileInfoButtons,
   Posts,
-
+  ShowFollowers,
+  ShowFollowings,
+  Feed,
+  HomeUserSuggestions,
 };

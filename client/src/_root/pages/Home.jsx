@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
+import { Feed, HomeUserSuggestions } from "../../components/index"
 
 const Home = () => {
   return (
@@ -7,7 +8,10 @@ const Home = () => {
     <Helmet>
         <title>SnapThread</title>
       </Helmet>
-    <div className='Home'>Home</div>
+      <div className='Home'>
+        <Feed />
+        <HomeUserSuggestions />
+      </div>
     </>
   )
 }
