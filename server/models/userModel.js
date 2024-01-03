@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
   {
@@ -32,51 +32,51 @@ const userSchema = new mongoose.Schema(
     },
     profilePicture: {
       type: String,
-      default: "",
+      default: '',
     },
     bio: {
       type: String,
-      default: "",
+      default: '',
       max: 150,
     },
     gender: {
       type: String,
-      default: "",
+      default: '',
     },
     dob: {
       type: Date,
-      default: "",
+      default: '',
     },
     website: {
       type: String,
-      default: "",
+      default: '',
     },
     mobile: {
       type: String,
-      default: "",
+      default: '',
     },
     saved: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Post",
+        ref: 'Post',
       },
     ],
     followers: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
       },
     ],
     following: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
       },
     ],
     role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user",
+      enum: ['user', 'admin'],
+      default: 'user',
     },
     isAdmin: {
       type: Boolean,
@@ -88,4 +88,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);

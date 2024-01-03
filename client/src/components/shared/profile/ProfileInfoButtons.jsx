@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { follow, unfollow } from "../../../redux/actions/profileAction";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { follow, unfollow } from '../../../redux/actions/profileAction';
 
 const ProfileInfoButtons = ({ user, ShowFollowers, ShowFollowings }) => {
   const auth = useSelector((state) => state.auth);
@@ -14,10 +15,9 @@ const ProfileInfoButtons = ({ user, ShowFollowers, ShowFollowings }) => {
       setIsFollowed(true);
     }
 
-    if(user.followers.find(
-      (follower) => follower === auth.user._id)) {
-        setIsFollowed(true);
-      }
+    if (user.followers.find((follower) => follower === auth.user._id)) {
+      setIsFollowed(true);
+    }
   }, [user, auth.user?._id]);
 
   //Handle follow
@@ -34,17 +34,19 @@ const ProfileInfoButtons = ({ user, ShowFollowers, ShowFollowings }) => {
   };
 
   return (
-    <div className="ProfileInfoButtons">
+    <div className='ProfileInfoButtons'>
       {ShowFollowers || ShowFollowings ? (
         // Show Follow and Following buttons in ShowFollowers and ShowFollowings are true
         <>
           {isFollowed ? (
-            <button className="btn unfollow-btn showfollowers" onClick={handleUnfollow}>
+            <button
+              className='btn unfollow-btn showfollowers'
+              onClick={handleUnfollow}>
               <span>Following</span>
             </button>
           ) : (
             <>
-              <button className="btn follow-btn" onClick={handleFollow}>
+              <button className='btn follow-btn' onClick={handleFollow}>
                 <span>Follow</span>
               </button>
             </>
@@ -55,19 +57,19 @@ const ProfileInfoButtons = ({ user, ShowFollowers, ShowFollowings }) => {
         <>
           {isFollowed ? (
             <>
-              <button className="btn unfollow-btn" onClick={handleUnfollow}>
+              <button className='btn unfollow-btn' onClick={handleUnfollow}>
                 <span>Following</span>
-                <img src="/assets/icons/unfollow.svg" alt="follow" />
+                <img src='/assets/icons/unfollow.svg' alt='follow' />
               </button>
-              <button className="btn message-btn">
-                <img src="/assets/icons/message.svg" alt="message" />
+              <button className='btn message-btn'>
+                <img src='/assets/icons/message.svg' alt='message' />
                 <span>Message</span>
               </button>
             </>
           ) : (
             <>
-              <button className="btn follow-btn" onClick={handleFollow}>
-                <img src="/assets/icons/follow.svg" alt="follow" />
+              <button className='btn follow-btn' onClick={handleFollow}>
+                <img src='/assets/icons/follow.svg' alt='follow' />
                 <span>Follow</span>
               </button>
             </>
@@ -76,6 +78,12 @@ const ProfileInfoButtons = ({ user, ShowFollowers, ShowFollowings }) => {
       )}
     </div>
   );
+};
+
+ProfileInfoButtons.propTypes = {
+  user: PropTypes.object,
+  ShowFollowers: PropTypes.bool,
+  ShowFollowings: PropTypes.bool,
 };
 
 export default ProfileInfoButtons;

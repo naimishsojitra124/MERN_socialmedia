@@ -154,12 +154,12 @@ select {
 
 .edit-footer-save:disabled {
   background: var(--primary-25);
-  color: #FFF;
+  color: #fff;
   cursor: not-allowed;
 }
 
 @media screen and (max-width: 640px) {
-   .EditProfileForm {
+  .EditProfileForm {
     width: 100%;
     height: 100%;
     padding: 0.5rem 0 0 0;

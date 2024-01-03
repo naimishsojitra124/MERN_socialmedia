@@ -1,18 +1,18 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { ProfileInfo, Posts } from "../../components/index";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { ProfileInfo } from '../../components/index';
 
 const Profile = () => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Profile</title>
       </Helmet>
 
-    <div className="Profile">
-      <ProfileInfo />
-      Profile Bottom
-    </div>
+      <div className='Profile'>
+        <ProfileInfo />
+        Profile Bottom
+      </div>
     </>
   );
 };

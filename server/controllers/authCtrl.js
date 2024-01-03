@@ -1,6 +1,6 @@
-const User = require("../models/userModel");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const User = require('../models/userModel');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET;
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
@@ -11,22 +11,22 @@ const authCtrl = {
     try {
       // Destructure req.body
       const { name, email, password, profilePicture } = req.body;
-      let username = req.body.username.toLowerCase().replace(/ /g, "");
+      let username = req.body.username.toLowerCase().replace(/ /g, '');
 
       // Check if password is less than 6 characters
       if (password.length < 6) {
         return res
           .status(400)
-          .json({ msg: "Password must be at least 6 characters" });
+          .json({ msg: 'Password must be at least 6 characters' });
       }
       //Validation
       const userExists = await User.findOne({ username });
       if (userExists)
-        return res.status(400).json({ msg: "Username already exists" });
+        return res.status(400).json({ msg: 'Username already exists' });
 
       const emailExists = await User.findOne({ email });
       if (emailExists)
-        return res.status(400).json({ msg: "Email already exists" });
+        return res.status(400).json({ msg: 'Email already exists' });
 
       //Generate Password
       const salt = await bcrypt.genSalt(12);
@@ -46,9 +46,9 @@ const authCtrl = {
       const refreshToken = createRefreshToken({ id: newUser._id });
 
       //Set cookie
-      res.cookie("refreshToken", refreshToken, {
+      res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
-        path: "/api/auth/refresh_token",
+        path: '/api/auth/refresh_token',
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
 
@@ -56,11 +56,11 @@ const authCtrl = {
       await newUser.save();
 
       return res.json({
-        msg: "Registered Successfully!",
+        msg: 'Registered Successfully!',
         accessToken,
         user: {
           ...newUser._doc,
-          password: "",
+          password: '',
         },
       });
     } catch (err) {
@@ -74,32 +74,32 @@ const authCtrl = {
 
       //Validation
       const user = await User.findOne({ email }).populate(
-        "followers following",
-        "-password"
+        'followers following',
+        '-password'
       );
-      if (!user) return res.status(400).json({ msg: "User does not exist" });
+      if (!user) return res.status(400).json({ msg: 'User does not exist' });
 
       //Compare password
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return res.status(400).json({ msg: "Incorrect password" });
+      if (!isMatch) return res.status(400).json({ msg: 'Incorrect password' });
 
       //Create jwt to authenticate user
       const accessToken = createAccessToken({ id: user._id });
       const refreshToken = createRefreshToken({ id: user._id });
 
       //Set cookie
-      res.cookie("refreshToken", refreshToken, {
+      res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
-        path: "/api/auth/refresh_token",
+        path: '/api/auth/refresh_token',
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
 
       return res.json({
-        msg: "Logged in Successfully!",
+        msg: 'Logged in Successfully!',
         accessToken,
         user: {
           ...user._doc,
-          password: "",
+          password: '',
         },
       });
     } catch (err) {
@@ -110,8 +110,10 @@ const authCtrl = {
   logout: async (req, res) => {
     try {
       // Clear cookie
-      res.clearCookie("refreshToken", { path: "/api/auth/refresh_token" });
-      return res.json({ msg: "Logged out" });
+      res.clearCookie('refreshToken', {
+        path: '/api/auth/refresh_token',
+      });
+      return res.json({ msg: 'Logged out' });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -121,31 +123,26 @@ const authCtrl = {
     try {
       // Get refresh token
       const rf_token = req.cookies.refreshToken;
-      if (!rf_token) return res.status(400).json({ msg: "Please login now" });
+      if (!rf_token) return res.status(400).json({ msg: 'Please login now' });
 
       // Verify refresh token
-      jwt.verify(
-        rf_token,
-        JWT_REFRESH_SECRET,
-        async (err, result) => {
-          if (err) return res.status(400).json({ msg: "Please login now" });
+      jwt.verify(rf_token, JWT_REFRESH_SECRET, async (err, result) => {
+        if (err) return res.status(400).json({ msg: 'Please login now' });
 
-          // Check if user exists
-          const user = await User.findById(result.id)
-            .select("-password")
-            .populate("followers following", "-password");
-          if (!user)
-            return res.status(400).json({ msg: "User does not exist" });
+        // Check if user exists
+        const user = await User.findById(result.id)
+          .select('-password')
+          .populate('followers following', '-password');
+        if (!user) return res.status(400).json({ msg: 'User does not exist' });
 
-          //Create jwt to authenticate user
-          const accessToken = createAccessToken({ id: result.id });
+        //Create jwt to authenticate user
+        const accessToken = createAccessToken({ id: result.id });
 
-          return res.json({
-            accessToken,
-            user,
-          });
-        }
-      );
+        return res.json({
+          accessToken,
+          user,
+        });
+      });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -154,12 +151,12 @@ const authCtrl = {
 
 // Create jwt to authenticate user
 const createAccessToken = (payload) => {
-  return jwt.sign(payload, JWT_ACCESS_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, JWT_ACCESS_SECRET, { expiresIn: '7d' });
 };
 
 // Create jwt to authenticate user
 const createRefreshToken = (payload) => {
-  return jwt.sign(payload, JWT_REFRESH_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, JWT_REFRESH_SECRET, { expiresIn: '7d' });
 };
 
 module.exports = authCtrl;

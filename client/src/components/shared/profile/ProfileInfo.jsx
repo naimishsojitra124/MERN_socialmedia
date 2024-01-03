@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserProfile } from "../../../redux/actions/profileAction";
-import ProfileInfoButtons from "./ProfileInfoButtons";
-import ShowFollowers from "./ShowFollowers";
-import ShowFollowings from "./ShowFollowings";
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserProfile } from '../../../redux/actions/profileAction';
+import ProfileInfoButtons from './ProfileInfoButtons';
+import ShowFollowers from './ShowFollowers';
+import ShowFollowings from './ShowFollowings';
 
 const ProfileInfo = () => {
   // State
@@ -30,45 +30,46 @@ const ProfileInfo = () => {
   }, [userId, auth, dispatch, profile.users]);
 
   return (
-    <div className="ProfileInfo">
+    <div className='ProfileInfo'>
       {userData.map((user) => (
         <div key={user?._id}>
-          <div className="profile-info-top">
-            <div className="profile-info-top-left">
+          <div className='profile-info-top'>
+            <div className='profile-info-top-left'>
               <img
                 src={
                   user?.profilePicture
                     ? user?.profilePicture
-                    : "/assets/icons/profile-placeholder.svg"
+                    : '/assets/icons/profile-placeholder.svg'
                 }
-                alt="profile-pic"
-                className="profile-pic"
-                loading="lazy"
+                alt='profile-pic'
+                className='profile-pic'
+                loading='lazy'
               />
             </div>
-            <div className="profile-info-top-right">
-              <div className="profile-info-right-top">
-                <div className="profile-info-names">
-                  <div className="profile-info-name">
+            <div className='profile-info-top-right'>
+              <div className='profile-info-right-top'>
+                <div className='profile-info-names'>
+                  <div className='profile-info-name'>
                     <span>{user?.name}</span>
                   </div>
-                  <div className="profile-info-username">@{user?.username}</div>
+                  <div className='profile-info-username'>@{user?.username}</div>
                 </div>
-                <div className="profile-info-buttons">
+                <div className='profile-info-buttons'>
                   {/* Show Edit Profile button if user is logged in user */}
                   {userId === auth.user?._id ? (
                     <button
-                      className="btn editprofile-btn"
+                      className='btn editprofile-btn'
                       onClick={(e) => {
                         e.preventDefault();
-                        navigate("/account/edit");
-                      }}
-                    >
+                        navigate('/account/edit');
+                      }}>
                       <span>Edit Profile</span>
                       <img
-                        src="/assets/icons/edit.svg"
-                        alt="edit-profile"
-                        style={{ margin: "0 0 0.2rem 0" }}
+                        src='/assets/icons/edit.svg'
+                        alt='edit-profile'
+                        style={{
+                          margin: '0 0 0.2rem 0',
+                        }}
                       />
                     </button>
                   ) : (
@@ -76,13 +77,13 @@ const ProfileInfo = () => {
                   )}
                 </div>
               </div>
-              <div className="profile-info-right-bottom">
-                <div className="profile-info">
+              <div className='profile-info-right-bottom'>
+                <div className='profile-info'>
                   <span>12</span>
                   <span>Posts</span>
                 </div>
 
-                <div className="profile-info">
+                <div className='profile-info'>
                   <span
                     onClick={() => {
                       if (
@@ -96,14 +97,13 @@ const ProfileInfo = () => {
                         // If user is logged in user then show followers
                         setShowFollowers(!showFollowers);
                       }
-                    }}
-                  >
+                    }}>
                     {user?.followers?.length}
                   </span>
                   <span>Followers</span>
                 </div>
 
-                <div className="profile-info">
+                <div className='profile-info'>
                   <span
                     onClick={() => {
                       if (
@@ -117,8 +117,7 @@ const ProfileInfo = () => {
                         // If user is logged in user then show followings
                         setShowFollowings(!showFollowings);
                       }
-                    }}
-                  >
+                    }}>
                     {user?.following?.length}
                   </span>
                   <span>Following</span>
@@ -126,37 +125,36 @@ const ProfileInfo = () => {
               </div>
             </div>
           </div>
-          <div className="profile-info-bottom">
-            <div className="profile-info-bio">
-              {user?.bio ? <span>{user?.bio}</span> : "No Bio"}
+          <div className='profile-info-bottom'>
+            <div className='profile-info-bio'>
+              {user?.bio ? <span>{user?.bio}</span> : 'No Bio'}
             </div>
             {user?.website && (
-              <div className="profile-info-website">
+              <div className='profile-info-website'>
                 <img
-                  src="/assets/icons/link.svg"
-                  alt="link"
-                  className="link-icon"
+                  src='/assets/icons/link.svg'
+                  alt='link'
+                  className='link-icon'
                   height={16}
                 />
-                <a href={user?.website} target="_blank" rel="noreferrer">
+                <a href={user?.website} target='_blank' rel='noreferrer'>
                   {user?.website}
                 </a>
               </div>
             )}
-            <div className="profile-buttons-mobile">
+            <div className='profile-buttons-mobile'>
               {userId === auth.user?._id ? (
                 <button
-                  className="btn editprofile-btn"
+                  className='btn editprofile-btn'
                   onClick={(e) => {
                     e.preventDefault();
-                    navigate("/account/edit");
-                  }}
-                >
+                    navigate('/account/edit');
+                  }}>
                   <span>Edit Profile</span>
                   <img
-                    src="/assets/icons/edit.svg"
-                    alt="edit-profile"
-                    style={{ margin: "0 0 0.2rem 0" }}
+                    src='/assets/icons/edit.svg'
+                    alt='edit-profile'
+                    style={{ margin: '0 0 0.2rem 0' }}
                   />
                 </button>
               ) : (
@@ -164,7 +162,7 @@ const ProfileInfo = () => {
               )}
             </div>
           </div>
-          
+
           {/* Show followers and followings */}
           {showFollowers && user?.followers.length > 0 && (
             <ShowFollowers

@@ -1,14 +1,14 @@
 .Profile {
-    width: 80%;
-    height: 100vh;
-    margin: 0 auto;
-    /* background: antiquewhite; */
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  /* background: antiquewhite; */
 }
 
 @media screen and (max-width: 769px) {
-    .Profile {
-        width: 100vw;
-        height: calc(100vh - 7rem);
-        margin: auto;
-    }
+  .Profile {
+    width: 100vw;
+    height: calc(100vh - 7rem);
+    margin: auto;
+  }
 }

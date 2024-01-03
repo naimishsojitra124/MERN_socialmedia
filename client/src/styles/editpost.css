@@ -1,0 +1,206 @@
+.editpost {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.editpost_wrapper {
+  width: 50%;
+  height: auto;
+  max-height: 80%;
+  background: #fff;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.editpost_header {
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editpost_close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.editpost_content {
+  width: 100%;
+  height: 100%;
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.editpost_form-group {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.editpost_form-group label {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral2-700);
+}
+
+.editpost_form-group input,
+.editpost_form-group textarea {
+  width: 100%;
+  height: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.325rem;
+  padding: 0 0.5rem;
+  font-size: var(--font-size-medium);
+  outline: none;
+}
+
+.editpost_form-group textarea {
+  height: 5rem;
+  max-height: 8rem;
+  resize: vertical;
+  padding: 0.5rem;
+}
+
+.editpost_add-img-container {
+  width: 100%;
+  height: 20rem;
+  max-height: 20rem;
+  border: 1px solid var(--border-color);
+  background: #f5f5f599;
+  border-radius: 0.325rem;
+}
+
+.editpost_selected-imgs-container {
+  width: 100%;
+  height: 16rem;
+  max-height: 16rem;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editpost_selected-imgs-wrapper {
+  width: 100%;
+  height: auto;
+  max-height: 16rem;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  place-items: center;
+  grid-gap: 0.5rem;
+}
+
+.editpost_selected-image-item {
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.editpost_selected-image-item img {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+  max-width: 15rem;
+  height: 100%;
+  max-height: 10rem;
+  border-radius: 0.5rem;
+}
+
+.editpost_selected-img-cancel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--primary-500);
+  border-radius: 50%;
+  padding: 0 0 0.1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.editpost_img-options {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 2rem; */
+}
+
+.editpost_form-btns {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.editpost_btn {
+  width: 10rem;
+  height: 2.5rem;
+  border: none;
+  background: #fff;
+  color: var(--primary-500);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.editpost_btn-save {
+  margin: 0;
+  border-radius: 0.3rem;
+  background: var(--primary-500);
+  color: #fff;
+}
+
+.editpost_btn-save:hover {
+  background: var(--primary-600);
+}
+
+.editpost_btn-save:disabled {
+  background: var(--primary-25);
+  color: #fff;
+  cursor: not-allowed;
+}

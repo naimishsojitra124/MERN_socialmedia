@@ -1,15 +1,15 @@
-import React from 'react'
-import { Helmet } from "react-helmet";
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const PostDetails = () => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Post Details</title>
       </Helmet>
-    <div>PostDetails</div>
+      <div>PostDetails</div>
     </>
-  )
-}
+  );
+};
 
-export default PostDetails
+export default PostDetails;

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const HomeUserSuggestions = () => {
-  return (
-    <div className='HomeUserSuggestions'>HomeUserSuggestions</div>
-  )
-}
+  return <div className='HomeUserSuggestions'>HomeUserSuggestions</div>;
+};
 
-export default HomeUserSuggestions
+export default HomeUserSuggestions;

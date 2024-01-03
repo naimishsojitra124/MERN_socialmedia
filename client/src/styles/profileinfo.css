@@ -75,7 +75,6 @@
   cursor: pointer;
 }
 
-
 .profile-info span:nth-of-type(1):hover {
   text-decoration: underline;
 }
@@ -104,26 +103,26 @@
 }
 
 .profile-info-website {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin: 0.3rem 0 0 0;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.3rem 0 0 0;
+  cursor: pointer;
 }
 
 .profile-info-website a {
-    text-decoration: none;
-    color: var(--primary-300);
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  color: var(--primary-300);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-semibold);
 }
 
 .profile-info-website a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .profile-info-website a:visited {
-    color: var(--primary-700);
+  color: var(--primary-700);
 }
 
 .profile-buttons-mobile {

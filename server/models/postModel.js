@@ -1,16 +1,16 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
     caption: {
       type: String,
       maxlength: 2200,
-      default: "",
+      default: '',
     },
     images: {
       type: Array,
@@ -22,34 +22,33 @@ const PostSchema = new mongoose.Schema(
     },
     location: {
       type: String,
-      default: "",
+      default: '',
     },
     likes: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
       },
     ],
     comments: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "Comment",
       },
     ],
     savedBy: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
       },
     ],
     taggedUsers: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
       },
     ],
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model('Post', PostSchema);

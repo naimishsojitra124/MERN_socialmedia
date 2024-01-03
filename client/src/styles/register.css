@@ -5,28 +5,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 2;
-}
-
-.Register::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url("../../public/assets/login_backgroundImg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background: rgba(0, 0, 0, 0.25);
-  filter: blur(0.325rem);
-  opacity: 0.7;
+  z-index: 999;
+  background: url('../../public/assets/login_backgroundImg.jpg') no-repeat
+    center center/cover;
 }
 
 .Register::after,
 .register-container-right::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -182,10 +168,8 @@
 }
 
 .register-container-right {
-  background: url("../../public/assets/register_background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url('../../public/assets/register_background.jpg') no-repeat
+    center center/cover;
   opacity: 0.95;
   width: 50%;
   height: auto;
@@ -195,9 +179,7 @@
 
 .register-container-right::after {
   height: 100%;
-  opacity: 0.9;
   border-radius: 0 0.325rem 0.325rem 0;
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .register-right-text {

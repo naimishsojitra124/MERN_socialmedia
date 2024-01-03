@@ -1,5 +1,5 @@
-const AWS = require("aws-sdk");
-const dotenv = require("dotenv");
+const AWS = require('aws-sdk');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -26,7 +26,7 @@ const uploadCtrl = {
       const { userId } = req.params;
 
       //Validate
-      if (!file) return res.status(400).json({ msg: "No file uploaded" });
+      if (!file) return res.status(400).json({ msg: 'No file uploaded' });
 
       //S3 Bucket params
       const params = {
@@ -56,11 +56,11 @@ const uploadCtrl = {
       Key: `profilePicture/${userId}/${filename}`,
     };
 
-    await s3.deleteObject(params, (err, data) => {
+    await s3.deleteObject(params, (err) => {
       if (err) {
         return res.status(400).json({ msg: err.message });
       }
-      return res.status(200).json({ msg: "Image deleted successfully" });
+      return res.status(200).json({ msg: 'Image deleted successfully' });
     });
   },
   // @route   POST api/upload/uploadPostImgs/:userId
@@ -70,7 +70,7 @@ const uploadCtrl = {
       const { userId } = req.params;
 
       //Validate
-      if (!file) return res.status(400).json({ msg: "No file uploaded" });
+      if (!file) return res.status(400).json({ msg: 'No file uploaded' });
 
       //S3 Bucket params
       const params = {
@@ -85,9 +85,9 @@ const uploadCtrl = {
         if (err) {
           return res.status(400).json({ msg: err.message });
         }
-        return res.status(200).json({ 
+        return res.status(200).json({
           imgUrl: data.Location,
-          public_id: data.Key
+          public_id: data.Key,
         });
       });
     } catch (err) {
@@ -95,7 +95,21 @@ const uploadCtrl = {
     }
   },
   // @route   DELETE api/upload/deletePostImgs/:filename/:userId
-  deletePostImgs: async (req, res) => {},
+  deletePostImgs: async (req, res) => {
+    const { filename, userId } = req.params;
+
+    const params = {
+      Bucket: AWS_BUCKET_NAME,
+      Key: `postImages/${userId}/${filename}`,
+    };
+
+    await s3.deleteObject(params, (err) => {
+      if (err) {
+        return res.status(400).json({ msg: err.message });
+      }
+      return res.status(200).json({ msg: 'Image deleted successfully' });
+    });
+  },
 };
 
 module.exports = uploadCtrl;

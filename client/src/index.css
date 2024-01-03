@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap');
 
 /* Variables */
-@import url("./styles/variables.css");
+@import url('./styles/variables.css');
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   color: var(--neutral2-700);
   transition: all 0.2s ease;
 }
@@ -46,48 +46,49 @@ body {
 }
 
 /* Register Styles */
-@import url("./styles/register.css");
+@import url('./styles/register.css');
 
 /* Login Styles */
-@import url("./styles/login.css");
+@import url('./styles/login.css');
 
 /* Root Layout Styles */
-@import url("./styles/rootLayout.css");
+@import url('./styles/rootLayout.css');
 
 /* Topbar Styles */
-@import url("./styles/topbar.css");
+@import url('./styles/topbar.css');
 
 /* LeftSidebar Styles */
-@import url("./styles//leftsidebar.css");
+@import url('./styles//leftsidebar.css');
 
 /* Bottombar Styles */
-@import url("./styles/bottombar.css");
+@import url('./styles/bottombar.css');
 
 /* Home Styles */
-@import url("./styles/home.css");
-@import url("./styles/feed.css");
-@import url("./styles//homeusersuggestions.css");
+@import url('./styles/home.css');
+@import url('./styles/feed.css');
+@import url('./styles//homeusersuggestions.css');
 
 /* Post Styles */
-@import url("./styles/posts.css");
-@import url("./styles/carousel.css");
+@import url('./styles/posts.css');
+@import url('./styles/carousel.css');
+@import url("./styles/editpost.css");
 
 /* Explore Styles */
-@import url("./styles/explore.css");
+@import url('./styles/explore.css');
 
 /* Search Model Styles */
-@import url("./styles/searchmodel.css");
+@import url('./styles/searchmodel.css');
 
 /* Profile Styles */
-@import url("./styles/profile.css");
-@import url("./styles/profileinfo.css");
-@import url("./styles//profileinfobuttons.css");
-@import url("./styles/showfollowers.css");
+@import url('./styles/profile.css');
+@import url('./styles/profileinfo.css');
+@import url('./styles//profileinfobuttons.css');
+@import url('./styles/showfollowers.css');
 
 /* Update Profile Styles */
-@import url("./styles/updateprofile.css");
-@import url("./styles//editprofileform.css");
-@import url("./styles/changepasswordform.css");
+@import url('./styles/updateprofile.css');
+@import url('./styles//editprofileform.css');
+@import url('./styles/changepasswordform.css');
 
 /* Create Post Styles */
-@import url("./styles/createpost.css");
+@import url('./styles/createpost.css');

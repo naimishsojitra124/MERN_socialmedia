@@ -31,7 +31,7 @@
 }
 
 .topBar-left h1 {
-  font-family: "Lobster", sans-serif;
+  font-family: 'Lobster', sans-serif;
   font-size: var(--font-size-large);
   padding: 0.2rem 0 0 0;
 }
@@ -56,15 +56,16 @@
 }
 
 .settings {
+  height: 100%;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
   display: flex;
+  align-items: center;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
 
 .settings-container {
@@ -88,11 +89,15 @@
   outline: none;
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-semibold);
-  color: var(--primary-500);
+  color: #29292d;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.setting {
+  color: var(--primary-500);
 }
 
 .settings-btn:last-child {

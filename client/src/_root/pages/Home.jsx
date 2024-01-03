@@ -1,11 +1,11 @@
 import React from 'react';
-import { Helmet } from "react-helmet";
-import { Feed, HomeUserSuggestions } from "../../components/index"
+import { Helmet } from 'react-helmet';
+import { Feed, HomeUserSuggestions } from '../../components/index';
 
 const Home = () => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>SnapThread</title>
       </Helmet>
       <div className='Home'>
@@ -13,7 +13,7 @@ const Home = () => {
         <HomeUserSuggestions />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

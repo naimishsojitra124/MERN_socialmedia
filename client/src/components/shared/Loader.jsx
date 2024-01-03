@@ -1,33 +1,39 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Loader = ({ size, stroke }) => {
   let loaderstyles = {};
-  if (size === "small") {
+  if (size === 'small') {
     loaderstyles = {
-      width: "1rem",
-      height: "1rem",
-      margin: "0 0.5rem 0 0",
+      width: '1rem',
+      height: '1rem',
+      margin: '0 0.5rem 0 0',
     };
-  } else if (size === "medium") {
+  } else if (size === 'medium') {
     loaderstyles = {
-      width: "1.25rem",
-      height: "1.25rem",
-      margin: "0 0.7rem 0 0",
+      width: '1.25rem',
+      height: '1.25rem',
+      margin: '0 0.7rem 0 0',
     };
   }
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       <img
         src={
-          stroke === "white"
-            ? "/assets/icons/loader-white.svg"
-            : "/assets/icons/loader-black.svg"
+          stroke === 'white'
+            ? '/assets/icons/loader-white.svg'
+            : '/assets/icons/loader-black.svg'
         }
-        alt="loader"
+        alt='loader'
         style={loaderstyles}
       />
     </div>
   );
+};
+
+Loader.propTypes = {
+  size: PropTypes.string,
+  stroke: PropTypes.string,
 };
 
 export default Loader;
