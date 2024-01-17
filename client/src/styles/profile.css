@@ -5,10 +5,17 @@
   /* background: antiquewhite; */
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .Profile {
     width: 100vw;
     height: calc(100vh - 7rem);
     margin: auto;
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .Profile {
+    width: 100%;
   }
 }

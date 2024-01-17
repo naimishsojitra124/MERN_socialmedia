@@ -117,10 +117,12 @@
   --info-800: #0a3e72;
 
   /* Define breakpoints */
-  --mobile-breakpoint: 576px;
-  --tablet-breakpoint: 768px;
-  --desktop-breakpoint: 992px;
-  --large-desktop-breakpoint: 1200px;
+  --mobile-portrait: 480px;
+  --mobile-landscape: 767px;
+  --tablet-portrait: 1024px;
+  --tablet-landscape: 1199px;
+  --laptop: 1600px;
+  --desktop: 1601px;
 
   /* Define font sizes, weights, and line heights for different breakpoints */
   --font-size-small: 0.8rem;
@@ -141,5 +143,5 @@
   --line-height-medium: 1.6;
   --line-height-large: 1.8;
 
-  --border-color: #bababa;
+  --border-color: var(--neutral1-300);
 }

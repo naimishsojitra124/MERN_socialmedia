@@ -21,21 +21,14 @@
 }
 
 .profile-info-top-right {
-  width: 40rem;
-  max-width: 40rem;
+  width: 35rem;
+  max-width: 35rem;
 }
 
 .profile-info-right-top {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
-}
-
-.profile-info-name,
-.profile-info-buttons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 }
 
 .profile-info-username {
@@ -129,7 +122,9 @@
   display: none;
 }
 
-@media screen and (max-width: 640px) {
+/* Media Queries */
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
   .ProfileInfo {
     min-height: auto;
     padding: 0 0.5rem;
@@ -167,5 +162,84 @@
     display: flex;
     align-items: center;
     margin: 0.5rem 0 0 0;
+  }
+}
+
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .ProfileInfo {
+    padding: 0 0.5rem;
+  }
+
+  .profile-info-top {
+    gap: 0;
+  }
+
+  .profile-info-top-right {
+    width: 100%;
+    max-width: auto;
+  }
+
+  .profile-info-name span {
+    font-size: var(--font-size-xlarge);
+  }
+
+  .profile-pic {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .profile-info-username { 
+    font-size: var(--font-size-medium);
+  }
+
+  .profile-info-right-top {
+    gap: 1rem;
+  }
+
+  .profile-info-right-bottom {
+    margin: 0.5rem 0 0 0;
+  }
+
+  .profile-info-website {
+    margin: 0;
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .ProfileInfo {
+    min-height: auto;
+    padding: 0 0.5rem 1rem;
+  }
+
+  .profile-info-top {
+    gap: 0;
+  }
+
+  .profile-info-top-right {
+    max-width: 25rem;
+    padding: 1rem 0 0 0;
+  }
+
+  .profile-info-name span {
+    font-size: var(--font-size-xlarge);
+  }
+
+  .profile-pic {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .profile-info-username { 
+    font-size: var(--font-size-medium);
+  }
+
+  .profile-info-right-top {
+    gap: 1rem;
+  }
+
+  .profile-info-website {
+    margin: 0;
   }
 }

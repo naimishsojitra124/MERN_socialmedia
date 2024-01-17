@@ -61,7 +61,7 @@ export const updateUserProfile =
 
         dispatch({
           type: TYPES.ALERT,
-          payload: { success: res?.data?.msg },
+          payload: { success: res.data?.msg },
         });
 
         dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
@@ -93,8 +93,6 @@ export const changePassword =
           auth.token
         );
 
-        console.log(res);
-
         dispatch({
           type: TYPES.ALERT,
           payload: { success: res?.data?.msg },
@@ -115,6 +113,10 @@ export const changePassword =
 export const follow =
   ({ user, auth }) =>
     async (dispatch) => {
+      dispatch({
+        type: TYPES.ALERT,
+        payload: { loading: true },
+      })
     // Update user in users array
       let newUser = { ...user, followers: [...user.followers, auth.user] };
 
@@ -139,6 +141,11 @@ export const follow =
       try {
       // Update database
         await patchDataAPI(`user/follow/${user?._id}`, null, auth.token);
+
+        dispatch({
+          type: TYPES.ALERT,
+          payload: { loading: false },
+        })
       } catch (err) {
         dispatch({
           type: TYPES.ALERT,
@@ -151,6 +158,10 @@ export const follow =
 export const unfollow =
   ({ user, auth }) =>
     async (dispatch) => {
+      dispatch({
+        type: TYPES.ALERT,
+        payload: { loading: true },
+      })
     // Update user in users array
       let newUser = {
         ...user,
@@ -178,6 +189,11 @@ export const unfollow =
       try {
       // Update database
         await patchDataAPI(`user/unfollow/${user?._id}`, null, auth.token);
+
+        dispatch({
+          type: TYPES.ALERT,
+          payload: { loading: false },
+        })
       } catch (err) {
         dispatch({
           type: TYPES.ALERT,

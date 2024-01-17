@@ -114,8 +114,6 @@ const CreatePost = () => {
             public_id: res.data.public_id,
           });
 
-          console.log(res);
-
           if (res.err) {
             return dispatch({
               type: TYPES.ALERT,

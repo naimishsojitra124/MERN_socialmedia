@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { login } from '../../redux/actions/authAction';
 import { Loader } from '../../components/index';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -113,7 +113,7 @@ const Login = () => {
                 </div>
                 <div className='login-form-group'>
                   <span>Don&apos;t have an account?</span>
-                  <Link to='/register'>Register</Link>
+                  <NavLink to='/register'>Register</NavLink>
                 </div>
               </form>
             </motion.div>

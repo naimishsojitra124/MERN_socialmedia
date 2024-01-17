@@ -15,6 +15,11 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   color: var(--neutral2-700);
   transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar {
@@ -71,7 +76,14 @@ body {
 /* Post Styles */
 @import url('./styles/posts.css');
 @import url('./styles/carousel.css');
-@import url("./styles/editpost.css");
+@import url('./styles/editpost.css');
+
+/* Comment Styles */
+@import url('./styles/comments.css');
+@import url('./styles/commentinput.css');
+@import url('./styles/commentcard.css');
+@import url('./styles/commentmenu.css');
+@import url('./styles/recursivecommentdisplay.css');
 
 /* Explore Styles */
 @import url('./styles/explore.css');

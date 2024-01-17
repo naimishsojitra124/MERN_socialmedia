@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 import { register } from '../../redux/actions/authAction';
 import { Loader } from '../../components/index';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -158,7 +158,7 @@ const Register = () => {
                 </div>
                 <div className='register-form-group'>
                   <span>Already have an account?</span>
-                  <Link to='/login'>Login</Link>
+                  <NavLink to='/login'>Login</NavLink>
                 </div>
               </form>
             </div>

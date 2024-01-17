@@ -4,7 +4,7 @@
   display: flex;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .Home {
     height: calc(100vh - 7rem);
     margin: auto;

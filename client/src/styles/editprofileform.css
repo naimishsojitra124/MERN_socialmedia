@@ -69,7 +69,7 @@
 
 .edit-body-right input,
 .edit-body-right textarea,
-select {
+.edit-body-right select {
   width: 80%;
   height: 2rem;
   border: 1px solid var(--border-color);
@@ -158,7 +158,9 @@ select {
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 640px) {
+/* Media Queries */
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
   .EditProfileForm {
     width: 100%;
     height: 100%;
@@ -188,6 +190,11 @@ select {
     padding: 0 0 0 0.3rem;
   }
 
+  .edit-header-left {
+    width: auto;
+    margin: 0 1rem 0 0;
+  }
+
   .edit-form-body {
     margin: 0.5rem 0 0 0;
   }
@@ -206,8 +213,8 @@ select {
   }
 
   .edit-body-right input,
-  textarea,
-  select {
+  .edit-body-right textarea,
+  .edit-body-right select {
     width: 95%;
     margin: 0.5rem 0;
     padding: 0 0.4rem 0 0.4rem;
@@ -240,4 +247,145 @@ select {
     height: 2rem;
     font-size: var(--font-size-small);
   }
+}
+
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .EditProfileForm {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0 0 0;
+  }
+
+  .edit-form-header {
+    width: 100%;
+  }
+
+  .edit-header-username {
+    width: 100%;
+    font-size: var(--font-size-medium);
+  }
+
+  .edit-header-img-label {
+    width: 100%;
+    font-size: var(--font-size-small);
+  }
+
+  .edit-header-left,
+  .edit-body-left {
+    width: 22%;
+    height: auto;
+    align-items: start;
+    font-size: var(--font-size-small);
+    padding: 0 0 0 0.3rem;
+  }
+
+  .edit-header-left {
+    width: auto;
+    margin: 0 1rem 0 0;
+  }
+
+  .edit-form-body {
+    margin: 0.5rem 0 0 0;
+  }
+
+  .edit-body-item {
+    width: 100%;
+    margin: 0.5rem 0 0 0;
+    padding: 0 0 0 0.3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-body-right,
+  .edit-body-phone-right {
+    width: 100%;
+  }
+
+  .edit-body-right input,
+  .edit-body-right textarea,
+  .edit-body-right select {
+    width: 95%;
+    margin: 0.5rem 0;
+    padding: 0 0.4rem 0 0.4rem;
+  }
+
+  .edit-body-right span,
+  .personal-info span {
+    width: 95%;
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  .personal-info {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0 0 0;
+  }
+
+  .edit-body-phone-container {
+    width: 100% !important;
+  }
+  .edit-body-phone-input {
+    width: 95% !important;
+    height: 2rem;
+  }
+
+  .edit-footer-cancel,
+  .edit-footer-save {
+    width: 7.5rem;
+    height: 2rem;
+    font-size: var(--font-size-small);
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .EditProfileForm {
+    padding: 0.5rem 0 0 0;
+  }
+
+  .edit-profile-img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .edit-header-left,
+  .edit-body-left {
+    width: 25%;
+  }
+
+  .edit-header-right,
+  .edit-body-right,
+  .edit-body-phone-right {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    /* background: antiquewhite; */
+  }
+
+  .edit-body-right input,
+  .edit-body-right textarea,
+  .edit-body-right select {
+    width: 90%;
+  }
+
+  .edit-body-right span,
+  .personal-info span {
+    width: 90%;
+  }
+
+  .edit-body-phone-container {
+    width: 100% !important;
+  }
+
+  .edit-body-phone-input {
+    width: 90% !important;
+  }
+
+  .personal-info {
+    width: 75%;
+    margin: 1rem 0 0 25%;
+  }
+
 }

@@ -49,7 +49,7 @@
 }
 
 .search-results {
-  width: auto;
+  width: 70%;
   min-width: 20rem;
   max-height: 20rem;
   position: absolute;
@@ -62,7 +62,9 @@
   z-index: 9999;
 }
 
-@media screen and (max-width: 640px) {
+/* Media Queries */
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
   .explore-top-search {
     width: 95%;
   }
@@ -72,7 +74,19 @@
   }
 }
 
-@media screen and (min-width: 641px) and (max-width: 769px) {
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .explore-top-search {
+    width: 80%;
+  }
+
+  .search-results {
+    width: 100%;
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
   .explore-top-search {
     width: 80%;
   }

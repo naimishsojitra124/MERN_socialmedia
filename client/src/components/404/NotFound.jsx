@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './NotFound.css';
 
@@ -152,9 +152,9 @@ const NotFound = () => {
           <div className='subtitle'>
             Oops. Looks like you took a wrong turn.
           </div>
-          <Link to='/'>
+          <NavLink to='/'>
             <button className='Button'>Go back</button>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </>

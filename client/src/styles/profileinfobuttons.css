@@ -48,7 +48,9 @@
   color: var(--primary-600);
 }
 
-@media screen and (max-width: 640px) {
+/* Media Queries */
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
   .ProfileInfoButtons {
     width: 100%;
     gap: 0.5rem;
@@ -77,6 +79,58 @@
     height: 1.1rem;
   }
 
+  .follow-btn span,
+  .unfollow-btn span,
+  .message-btn span {
+    font-size: var(--font-size-small);
+  }
+}
+
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .ProfileInfoButtons {
+    width: 100%;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 8rem;
+    height: 2.2rem;
+  }
+
+  .btn img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .editprofile-btn span,
+  .follow-btn span,
+  .unfollow-btn span,
+  .message-btn span {
+    font-size: var(--font-size-small);
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .ProfileInfoButtons {
+    width: 100%;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 8rem;
+    height: 2.2rem;
+  }
+
+  .btn img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .editprofile-btn span,
   .follow-btn span,
   .unfollow-btn span,
   .message-btn span {

@@ -1,7 +1,3 @@
-::-webkit-scrollbar {
-  display: none;
-}
-
 .create-post-container {
   width: 100%;
   height: 100%;
@@ -209,7 +205,62 @@
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 768px) {
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
+  .create-post-container {
+    height: calc(100vh - 7rem);
+    margin: auto;
+    padding: 0rem 1rem 1rem 1rem;
+  }
+
+  .create-post-container header {
+    font-size: var(--font-size-medium);
+    margin: 1rem 0;
+  }
+
+  .create-post-container main form {
+    gap: 1rem;
+  }
+
+  .form-group label {
+    font-size: var(--font-size-medium);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    height: 2rem;
+    font-size: var(--font-size-small);
+  }
+
+  .form-group textarea {
+    height: 4rem;
+  }
+
+  .add-img-container {
+    height: 20rem;
+    max-height: 20rem;
+  }
+
+  .selected-imgs-container {
+    height: 15rem;
+    max-height: 15rem;
+  }
+
+  .selected-imgs-Wrapper {
+    max-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    place-items: center;
+    grid-gap: 0.5rem;
+  }
+
+  .selected-image-item img {
+    max-height: 8rem;
+  }
+}
+
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .create-post-container {
     height: calc(100vh - 7rem);
     margin: auto;
@@ -252,7 +303,61 @@
   .selected-imgs-Wrapper {
     max-height: 200px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    place-items: center;
+    grid-gap: 0.5rem;
+  }
+
+  .selected-image-item img {
+    max-height: 8rem;
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .create-post-container {
+    height: calc(100vh - 7rem);
+    margin: auto;
+    padding: 1rem 1rem;
+  }
+
+  .create-post-container header {
+    font-size: var(--font-size-medium);
+    margin: 1rem 0;
+  }
+
+  .create-post-container main form {
+    gap: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: var(--font-size-medium);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    height: 2rem;
+    font-size: var(--font-size-small);
+  }
+
+  .form-group textarea {
+    height: 4rem;
+  }
+
+  .add-img-container {
+    height: 20rem;
+    max-height: 20rem;
+  }
+
+  .selected-imgs-container {
+    height: 15rem;
+    max-height: 15rem;
+  }
+
+  .selected-imgs-Wrapper {
+    max-height: 200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     place-items: center;
     grid-gap: 0.5rem;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { logout } from '../redux/actions/authAction';
 
 const TopBar = () => {
@@ -30,16 +30,16 @@ const TopBar = () => {
       ) : (
         <section className='TopBar'>
           <div className='topBar-container'>
-            <Link to='/' className='topBar-left'>
+            <NavLink to='/' className='topBar-left'>
               <img
-                src='/assets/icons/camera-retro-solid.svg'
+                src='/assets/icons/snapThread.svg'
                 alt='logo'
                 className='topBar-logo'
                 width={23}
                 height={23}
               />
               {pathname === `/profile/${userId}` ? <></> : <h1>SnapThread</h1>}
-            </Link>
+            </NavLink>
             {userId && (
               <div className='topBar-center'>
                 <div className='topBar-username'>

@@ -113,7 +113,6 @@ const EditPost = () => {
 
             continue;
           }
-          console.log(imgNewURL[i]);
           const formData = new FormData();
           formData.append('files', imgNewURL[i]);
 

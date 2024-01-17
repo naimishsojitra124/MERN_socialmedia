@@ -12,7 +12,7 @@
 }
 
 .followers-wrapper {
-  width: 30rem;
+  width: 35rem;
   height: auto;
   max-height: 35rem;
   background: #fff;
@@ -26,7 +26,7 @@
 
 .followers-top {
   width: 100%;
-  height: 40px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,17 +85,15 @@
   color: var(--neutral1-600);
 }
 
-@media screen and (max-width: 640px) {
+/* Media Queries */
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
   .followers-wrapper {
     width: 95%;
   }
 
   .followers-top {
-    height: 50px;
-  }
-
-  .followers-close {
-    width: 50px;
+    height: 60px;
   }
 
   .followers-user {
@@ -115,6 +113,50 @@
   }
 
   .followers-user-right {
-    width: 35%;
+    width: 40%;
+  }
+}
+
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .followers-wrapper {
+    max-height: 30rem;
+  }
+  .followers-user {
+    padding: 0 0.5rem;
+  }
+
+  .followers-user-left {
+    width: 60%;
+  }
+
+  .followers-username {
+    font-size: var(--font-size-medium);
+  }
+
+  .followers-name {
+    font-size: var(--font-size-small);
+  }
+}
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .followers-wrapper {
+    max-height: 30rem;
+  }
+  .followers-user {
+    padding: 0 0.5rem;
+  }
+
+  .followers-user-left {
+    width: 60%;
+  }
+
+  .followers-username {
+    font-size: var(--font-size-medium);
+  }
+
+  .followers-name {
+    font-size: var(--font-size-small);
   }
 }

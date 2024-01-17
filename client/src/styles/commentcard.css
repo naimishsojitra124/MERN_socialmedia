@@ -1,0 +1,98 @@
+.comment_card {
+  width: 100%;
+  display: flex;
+  gap: 0.7rem;
+  justify-content: space-between;
+  margin: 0 0 0.5rem 0;
+}
+
+.comment_card-profile-pic {
+  width: auto;
+}
+
+.comment_card-profile-pic img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment_card-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.comment_card-name {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0.3rem 0 0;
+}
+
+.comment_card-text {
+  font-weight: var(--font-weight-regular);
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.comment_card-readmore {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  color: #737373;
+  cursor: pointer;
+}
+
+.comment_card-content-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comment_card-date,
+.comment_card-likes,
+.comment_card-reply {
+  color: #737373;
+  font-size: var(--font-size-small);
+  cursor: pointer;
+}
+
+.comment_card-date {
+  font-weight: var(--font-weight-regular);
+}
+
+.comment_card-likes,
+.comment_card-reply {
+  font-weight: var(--font-weight-bold);
+}
+
+.comment_card-more-icon {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+}
+
+.comment_card-more-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.comment_card:hover .comment_card-more-icon {
+  visibility: visible;
+}
+
+.comment_card-like img {
+  cursor: pointer;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.comment_input-reply {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0.1rem 0;
+  background: antiquewhite;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { sidebarLinks } from '../constants/index';
 import { logout } from '../redux/actions/authAction';
@@ -12,10 +12,10 @@ const LeftSideBar = () => {
   return (
     <nav className='LeftSideBar'>
       <div className='leftSideBar-top'>
-        <Link to='/' className='logo'>
+        <NavLink to='/' className='logo'>
           <img src='/assets/icons/snapThread.svg' alt='logo' />
           <span>SnapThread</span>
-        </Link>
+        </NavLink>
 
         {/* Left side icon links */}
         <div className='leftSideBar-links'>

@@ -17,3 +17,10 @@
     flex-direction: column;
   }
 }
+
+/* Tablets (Landscape) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .root-section {
+    width: 80%;
+  }
+}

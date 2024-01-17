@@ -1,0 +1,16 @@
+.comments {
+    width: 100%;
+}
+
+.comments_more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments_more-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}

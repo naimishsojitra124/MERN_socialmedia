@@ -33,7 +33,7 @@
 .searchmodel-name {
   color: var(--neutral2-600);
   font-size: 0.9rem;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-light);
 }
 
 .searchmodel-following-dot,
@@ -43,7 +43,16 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 640px) {
+/* Media Queries */
+/* Mobile Phones */
+@media only screen and (max-width: 480px) {
+  .searchodel-container {
+    width: 100%;
+  }
+}
+
+/* Tablets (Portrait) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .searchodel-container {
     width: 100%;
   }

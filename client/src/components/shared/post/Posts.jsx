@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { unfollow } from '../../../redux/actions/profileAction';
 import { TYPES } from '../../../redux/actions/authAction';
 import { likePost, unlikePost } from '../../../redux/actions/postAction';
+import { Comments, CommentInput } from '../../index';
 
 const Posts = ({
   post: {
@@ -32,11 +33,20 @@ const Posts = ({
   const [readMore, setReadMore] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showUnfollowScreen, setShowUnfollowScreen] = useState(false);
+  const [showCommentScreen, setShowCommentScreen] = useState(false);
+  const [onReply, setOnReply] = useState(null);
 
   useEffect(() => {
-    if (post.likes.find((like) => like._id === auth?.user?._id))
+    if (
+      likes &&
+      likes.length > 0 &&
+      likes.find((like) => like._id === auth?.user?._id)
+    ) {
       setIsLiked(true);
-  }, [auth.user?._id, post.likes]);
+    } else {
+      setIsLiked(false);
+    }
+  }, [auth.user?._id, likes]);
 
   const handleLike = async () => {
     if (loadLike) return;
@@ -75,11 +85,15 @@ const Posts = ({
     setShowDropdown(false);
   };
 
+  const handleOnReply = (commentInfo) => {
+    setOnReply(commentInfo);
+  };
+
   return (
     <AnimatePresence>
       <motion.div className='Post' {...slideAnimation('up')}>
         <div className='post_header'>
-          <NavLink className='post_header-left'>
+          <NavLink to={`/profile/${user?._id}`} className='post_header-left'>
             <img
               src={
                 user?.profilePicture || '/assets/icons/profile-placeholder.svg'
@@ -179,7 +193,11 @@ const Posts = ({
                   </p>
                 </div>
                 <div className='post_footer-icon-item'>
-                  <img src='/assets/icons/comment.svg' alt='Comment Icon' />
+                  <img
+                    src='/assets/icons/comment.svg'
+                    alt='Comment Icon'
+                    onClick={() => setShowCommentScreen(!showCommentScreen)}
+                  />
                   <p>
                     <span
                       className={
@@ -299,6 +317,22 @@ const Posts = ({
               </>
             )}
           </div>
+          {
+            // Comment screen
+            showCommentScreen && (
+              <>
+                <Comments
+                  post={post}
+                  onReply={handleOnReply}
+                />
+                <CommentInput
+                  post={post}
+                  onReply={onReply}
+                  setOnReply={setOnReply}
+                />
+              </>
+            )
+          }
         </div>
       </motion.div>
       {
@@ -359,13 +393,16 @@ Posts.propTypes = {
     caption: PropTypes.string.isRequired,
     likes: PropTypes.arrayOf(
       PropTypes.shape({
-        user: PropTypes.string.isRequired,
+        user: PropTypes.string,
       })
     ),
     comments: PropTypes.arrayOf(
       PropTypes.shape({
-        user: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
+        user: PropTypes.shape({
+          _id: PropTypes.string.isRequired,
+          username: PropTypes.string.isRequired,
+          profilePicture: PropTypes.string,
+        }),
       })
     ),
   }).isRequired,

@@ -28,12 +28,14 @@ const authRoute = require('./routes/authRouter');
 const uploadRoute = require('./routes/uploadRouter');
 const userRouter = require('./routes/userRouter');
 const postRouter = require('./routes/postRouter');
+const commentRouter = require('./routes/commentRouter');
 
 // Use Routes
 app.use('/api/auth', authRoute);
 app.use('/api/upload', uploadRoute);
 app.use('/api/user', userRouter);
 app.use('/api/post', postRouter);
+app.use('/api/comment', commentRouter);
 
 // Listen on port
 app.listen(PORT, () => {

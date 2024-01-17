@@ -16,6 +16,11 @@ import ShowFollowings from './shared/profile/ShowFollowings';
 import Feed from './shared/home/Feed';
 import HomeUserSuggestions from './shared/home/HomeUserSuggestions';
 import EditPost from './shared/post/EditPost';
+import Comments from './shared/post/comment/Comments'
+import CommentInput from './shared/post/comment/CommentInput';
+import CommentCard from './shared/post/comment/CommentCard';
+import RecursiveCommentDisplay from './shared/post/comment/RecursiveCommentDisplay';
+import CommentMenu from './shared/post/comment/CommentMenu';
 
 export {
   NotFound,
@@ -36,4 +41,9 @@ export {
   Feed,
   HomeUserSuggestions,
   EditPost,
+  Comments,
+  CommentInput,
+  CommentCard,
+  RecursiveCommentDisplay,
+  CommentMenu,
 };
